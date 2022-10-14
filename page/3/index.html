@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -170,7 +170,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/Scheduling/">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/async-concept/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +188,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/12/javascript/Scheduling/" class="post-title-link" itemprop="url">스케줄링의 구동 방식</a>
+          <a href="/2022/10/12/javascript/async-concept/" class="post-title-link" itemprop="url">비동기 개념</a>
         </h2>
 
         <div class="post-meta-container">
@@ -199,7 +199,7 @@
       </span>
       <span class="post-meta-item-text">작성일</span>
 
-      <time title="Post created: 2022-10-12 21:51:34" itemprop="dateCreated datePublished" datetime="2022-10-12T21:51:34+09:00">2022-10-12</time>
+      <time title="Post created: 2022-10-12 20:38:58" itemprop="dateCreated datePublished" datetime="2022-10-12T20:38:58+09:00">2022-10-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -216,6 +216,10 @@
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
         </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javascript/async/" itemprop="url" rel="index"><span itemprop="name">async</span></a>
+        </span>
     </span>
 
   
@@ -228,11 +232,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>우선 javascript call stack 개념을 이해하면 도움이 된다</p>
-<h1 id="스케줄링-정의"><a href="#스케줄링-정의" class="headerlink" title="스케줄링 정의"></a>스케줄링 정의</h1><p>실행 순서가 필요한 작업을 콜백 피라미드의 지옥에 빠지지 않고 구축하기 위한 기술</p>
-<p>비동기<a href="_posts/javascript/async-concept.md">async-concept</a> 나 콜백 <a href="_posts/javascript/callback-function-concept.md">callback-function-concept</a>이 적절히 사용된다 </p>
-<h1 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h1><p><img src="/_drafts/heropy/functions.md#%ED%98%B8%EC%B6%9C%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%20Scheduling%20a%20function%20call" alt="호출 스케줄링 Scheduling a function call"></p>
+          <p>[[async]]</p>
+<p>비동기는 일반적인 코딩 실행과 다르게<br>일정 시간만큼 지연된 후 실행되게 하는 함수다</p>
+<p>구현하는 함수로는</p>
+<h1 id="타이머"><a href="#타이머" class="headerlink" title="타이머"></a>타이머</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>( <span class="keyword">function</span>, milliseconds );</span><br></pre></td></tr></table></figure>
+<h1 id="반복-실행"><a href="#반복-실행" class="headerlink" title="반복 실행"></a>반복 실행</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setInterval</span>(<span class="keyword">function</span>, milliseconds );</span><br></pre></td></tr></table></figure>
 
+<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h2><h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="body-onload"><a href="#body-onload" class="headerlink" title="body onload"></a>body onload</h2><p>HTML 에서<br>로딩이 다 되고 실행되는 <code>onload</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onload=<span class="string">&#x27;function-name()&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="script-defer-async"><a href="#script-defer-async" class="headerlink" title="script defer async"></a>script defer async</h2><p>script를 지연시키는 <code>&lt;script defer scr=&quot;&quot;&gt;</code><br><a target="_blank" rel="noopener" href="http://www.tcpschool.com/html-tag-attrs/script-defer">script option 설명</a></p>
+<p>async 스크립트 실행중에는 HTML 파싱이 멈춥니다<br><a target="_blank" rel="noopener" href="https://ko.javascript.info/script-async-defer#ref-213">모던 자바스크립트 async 설명</a></p>
+<h1 id="이미지-지연에-대한-콜백-함수"><a href="#이미지-지연에-대한-콜백-함수" class="headerlink" title="이미지 지연에 대한 콜백 함수"></a>이미지 지연에 대한 콜백 함수</h1><p>이미지 태그에 src 을 넣으면 이미지를 불러오면서 로딩이 발생함<br>로딩이 끝나면 load 이벤트가 발생함<br>addEventListener 로 이벤트에 반응할 수 있음<br><a href="_posts/javascript/callback-function-concept.md">callback-function-concept</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">loadImage</span>(<span class="params">src, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> img = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;img&#x27;</span>)</span><br><span class="line">  img.<span class="property">src</span> = src</span><br><span class="line">  img.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>(img)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> imgContainer = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.image&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">loadImage</span>(<span class="string">&#x27;https://gstatic.com/webp/gallery/1.jpg&#x27;</span>, <span class="function"><span class="params">img</span> =&gt;</span> &#123;</span><br><span class="line">  imgContainer.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;done&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -266,7 +278,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/web-api-concept/">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/IIFE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -284,7 +296,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/12/javascript/web-api-concept/" class="post-title-link" itemprop="url">WEB-API에 대해</a>
+          <a href="/2022/10/12/javascript/IIFE/" class="post-title-link" itemprop="url">즉시실행함수(IIFE) 기본 개념</a>
         </h2>
 
         <div class="post-meta-container">
@@ -295,193 +307,14 @@
       </span>
       <span class="post-meta-item-text">작성일</span>
 
-      <time title="Post created: 2022-10-12 21:40:12" itemprop="dateCreated datePublished" datetime="2022-10-12T21:40:12+09:00">2022-10-12</time>
+      <time title="Post created: 2022-10-12 20:12:28" itemprop="dateCreated datePublished" datetime="2022-10-12T20:12:28+09:00">2022-10-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Updated at: 2022-10-14 15:50:27" itemprop="dateModified" datetime="2022-10-14T15:50:27+09:00">2022-10-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>정말 많은 기능 ex ) setTimeout(), console.log 조차 javascript 기능이 아니라 webAPI 기능이다?</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API">MDN Web-APIs</a></p>
-<p><code>addEventListener()</code>는 또 javascript ..</p>
-<p>순수 자바스크립트는 생각보다 적다?<br><code>for</code> ~ 연산자 쪽 변수 선언이나 class, function, built-in objects( array, string, object )<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN JavaScript</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-        <script src="https://utteranc.es/client.js" 
-          repo="mineclover/hexo-comment" 
-          issue-term="" 
-          label="Comment" 
-          theme="github-light" 
-          crossorigin="anonymous" 
-          async>
-        </script>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/Validation-tips/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="softer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev_FE Softer">
-      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Dev_FE Softer">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/12/Validation-tips/" class="post-title-link" itemprop="url">검증 팁</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-      
-
-      <time title="Post created: 2022-10-12 21:33:40 / Updated at: 21:50:18" itemprop="dateCreated datePublished" datetime="2022-10-12T21:33:40+09:00">2022-10-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>코드 검증, 함수 모듈 만들거나 , 재귀함수 만들거나 기타 기능적인 구현할 때<br>최대한 깨끗한 상태에서 하는 것을 권장한다</p>
-<p>ex ) 새 탭의 devtool console 과 빈 파일 or 메모장 활용</p>
-<p>작업 중인 영역에서는 이미 세팅된 것이 많아서 ( 오염되있어서 )<br>잘못된 결과가 나올 때가 많고, 잘못된 결과를 결과랍시고 믿어서 더 문제가 된다</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-        <script src="https://utteranc.es/client.js" 
-          repo="mineclover/hexo-comment" 
-          issue-term="" 
-          label="Comment" 
-          theme="github-light" 
-          crossorigin="anonymous" 
-          async>
-        </script>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/Recursion%20Function/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="softer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev_FE Softer">
-      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Dev_FE Softer">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/12/javascript/Recursion%20Function/" class="post-title-link" itemprop="url">재귀함수</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-      
-
-      <time title="Post created: 2022-10-12 21:27:59 / Updated at: 22:03:40" itemprop="dateCreated datePublished" datetime="2022-10-12T21:27:59+09:00">2022-10-12</time>
+      <time title="Updated at: 2022-10-14 15:51:41" itemprop="dateModified" datetime="2022-10-14T15:51:41+09:00">2022-10-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -507,9 +340,158 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>본인을 재귀하는 형태로 설계 됨</p>
-<p>보통 노드 조작할 때 root 찾아내거나<br>아니면 <strong>원하는 답이 나올 때 까지</strong> 반복해야할 때</p>
-<p>( 최대 반복을 지정하거나 , 무조건 끝날 수 있는 코드를 작성할 것 )</p>
+          <h1 id="사용-목적"><a href="#사용-목적" class="headerlink" title="사용 목적"></a>사용 목적</h1><p>외부 접근 되지 않게<br>다른 모듈에 영향이 없도록 하기 위해 한 번만 실행되야하는 기능을 선언하여 바로 실행할 때 사용한다</p>
+<p>일반적인 함수 선언을 하면 계속 호출 할 수 있고<br>표현식도 계속 호출 가능하여 문제가 발생할 수 있다</p>
+<p>한번 실행되지만 재호출이 불가능한 코드 방식이다</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+        <script src="https://utteranc.es/client.js" 
+          repo="mineclover/hexo-comment" 
+          issue-term="" 
+          label="Comment" 
+          theme="github-light" 
+          crossorigin="anonymous" 
+          async>
+        </script>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/07/javascript/javascript-note-design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="softer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev_FE Softer">
+      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Dev_FE Softer">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/07/javascript/javascript-note-design/" class="post-title-link" itemprop="url">javascript 폴더 구성 시안</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+
+      <time title="Post created: 2022-10-07 18:44:57" itemprop="dateCreated datePublished" datetime="2022-10-07T18:44:57+09:00">2022-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Updated at: 2022-10-14 15:52:39" itemprop="dateModified" datetime="2022-10-14T15:52:39+09:00">2022-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="작성-목적"><a href="#작성-목적" class="headerlink" title="작성 목적"></a>작성 목적</h1><p>읽기 좋게 써보자</p>
+<h1 id="카테고리-구성-시안-태그로-구성하는-것"><a href="#카테고리-구성-시안-태그로-구성하는-것" class="headerlink" title="카테고리 구성 시안 ( 태그로 구성하는 것 )"></a>카테고리 구성 시안 ( 태그로 구성하는 것 )</h1><p>카테고리 뎁스 제한이 없으니까 그냥 계속 깊게 해도 되나</p>
+<ol>
+<li>Method<ol>
+<li>array</li>
+<li>string</li>
+<li>number</li>
+</ol>
+</li>
+<li>연산자<ol>
+<li>삼항이나 기타등등</li>
+<li>비교 등치 기타등등</li>
+<li></li>
+</ol>
+</li>
+<li>변환자??? <ol>
+<li>parseInt 같은 것</li>
+<li>문자를 array로 바꾸는.. 거라던지</li>
+</ol>
+</li>
+<li>식별자?<ol>
+<li>typeof</li>
+<li>정규식</li>
+<li>타입체커</li>
+<li>활용 기타등등</li>
+</ol>
+</li>
+<li>인식하는 EventListener</li>
+<li>사용자 정보 수집 하는? DOM??<ol>
+<li>IntersectionObserver()</li>
+<li>getBoundingClientRect()</li>
+</ol>
+</li>
+<li>모듈화<ol>
+<li>import</li>
+<li>module.exports</li>
+<li>require</li>
+<li>register</li>
+</ol>
+</li>
+<li>클래스<ol>
+<li>클래스 메서드?</li>
+<li>클래스 사용방법</li>
+</ol>
+</li>
+<li>비동기<ol>
+<li>asy??? 랑 await</li>
+<li>useEffect 랑 usestate</li>
+<li>setin~~</li>
+</ol>
+</li>
+</ol>
+<h1 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a>레퍼런스</h1><h2 id="heropy-JavaScript"><a href="#heropy-JavaScript" class="headerlink" title="heropy JavaScript"></a>heropy JavaScript</h2><h3 id="구문-Statements"><a href="#구문-Statements" class="headerlink" title="구문(Statements)"></a><a target="_blank" rel="noopener" href="https://github.com/HeropCode/Get-Started#%EA%B5%AC%EB%AC%B8statements"></a><a target="_blank" rel="noopener" href="https://happy-noether-c87ffa.netlify.com/presentations/level2/javascript/statements">구문(Statements)</a></h3><p><code>if</code> <code>조건부(3항) 연산자</code> <code>else</code> <code>switch</code> <code>for</code> <code>while</code> <code>case</code> <code>default</code> <code>break</code> <code>continue</code></p>
+<h3 id="함수-Function"><a href="#함수-Function" class="headerlink" title="함수(Function)"></a><a target="_blank" rel="noopener" href="https://github.com/HeropCode/Get-Started#%ED%95%A8%EC%88%98function"></a><a target="_blank" rel="noopener" href="https://happy-noether-c87ffa.netlify.com/presentations/level2/javascript/function">함수(Function)</a></h3><p><code>선언(Declarations)</code> <code>표현(Expressions)</code> <code>즉시실행함수(IIFE)</code> <code>인자(Arguments)</code> <code>매개변수(Parameters)</code> <code>함수 종료</code> <code>arguments 객체</code> <code>유효범위(Scope)</code> <code>렉시컬(Lexical)</code> <code>호이스팅(Hoisting)</code> <code>콜백(Callback)</code></p>
+<h3 id="Core-functions-Methods"><a href="#Core-functions-Methods" class="headerlink" title="Core functions(Methods)"></a><a target="_blank" rel="noopener" href="https://github.com/HeropCode/Get-Started#core-functionsmethods"></a><a target="_blank" rel="noopener" href="https://happy-noether-c87ffa.netlify.com/presentations/level2/javascript/core_functions">Core functions(Methods)</a></h3><p><code>String</code> <code>Number</code> <code>Math</code> <code>Date</code> <code>Array</code> <code>Timer</code></p>
+<h3 id="자료-장점"><a href="#자료-장점" class="headerlink" title="자료 장점"></a>자료 장점</h3><p>목적별로 구분되있어서 원하는 기능을 추적하기 쉽다</p>
+<h3 id="자료-단점"><a href="#자료-단점" class="headerlink" title="자료 단점"></a>자료 단점</h3><p>검색이 없다 &gt;&gt; 브라우저 검색 자체는 되더라도 화면 이동이 안되서 불편함</p>
 
       
     </div>
@@ -537,7 +519,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 </div>

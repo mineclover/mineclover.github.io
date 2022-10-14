@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -170,7 +170,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/14/test/js/main/">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/Validation-tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,757 +188,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/14/test/js/main/" class="post-title-link" itemprop="url">제목 없음</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2022-10-14 15:53:59" itemprop="dateCreated datePublished" datetime="2022-10-14T15:53:59+09:00">2022-10-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Updated at: 2022-10-12 19:32:25" itemprop="dateModified" datetime="2022-10-12T19:32:25+09:00">2022-10-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          const io = new IntersectionObserver((entry, observer)=>{
-  //console.log(entry[0].boundingClientRect.y);
-  if (entry[0].boundingClientRect.y > 500 && entry[0].boundingClientRect.y < 2000) {
-    extendLoad(); //영상 리스트 생성
-    io.disconnect(); // 옵저버 삭제
-    resetObserve(); // 옵저버 생성
-  }
-  //나타날 때, 사라질 때 선언될 때 값이 옵저버에 저장되고 콜백도 실행된다
-  //entry 는 배열로 저장된다
-  
-},{threshold: 0});
-
-function resetObserve(){
-  if(io.entry){
-    io.disconnect();
-  };
-  
-  const lastEl = document.querySelector('.primary-area').lastElementChild;
-  io.observe(lastEl);
-}
-
-
-
-// 비활성화된 코드
-function adRendom(){
-  console.log('실행됨');
-  let i = Math.floor(Math.random() * 9 + 1);
-  document.querySelector('.ad .ad__img').style.backgroundImage = `url("ad/ad_0${i}.png")`;
-  //-는 카멜로 대문자 변환? 
-}
-
-function videoElement(){
-  let videoArea = document.querySelector('div.hide article.content');
-  let setArea = document.querySelector('section.primary-area');
-
-  let copyContent = videoArea.cloneNode(true);
-
-  setArea.appendChild(copyContent);
-}
-
-function videoContainerGen(num){
-  let i = 0
-  while(i < num){
-    videoElement();
-    i++;
-  }
-}
-
-function menuSet(name){
-  let area = document.querySelector('.primary-area');
-  area.innerHTML  = '';
-  let charText = name +`.length`
-  console.log(charText);
-  videoContainerGen(eval(charText));
-  contentSelector(name);
-  
-  //let filter = document.querySelectorAll('filter-item--active');
-  let filter = document.querySelectorAll('.filter-item');
-  filter.forEach( function(f){
-    f.classList.remove('filter-item--active');
-  });
-
-  document.querySelector(`.filter-item.${name}`).classList.add('filter-item--active');
-}
-
-
-function extendLoad(){
-  videoContainerGen(24);
-  contentSelector('dumi');
-}
-
-
-function contentSelector(name){
-  var list = document.querySelectorAll('.primary-area article.content');
-  console.log(list.length);
-
-  console.log(list[0]);
-  
-  
-  if(name === 'dumi'){
-    for(let i = 0;i <list.length;i++){
-      videoGenerator(list[i],dumiGen(i));
-    }
-  }
-  else{
-
-    let charText = name +`.length`
-    console.log(charText);
-    let len = eval(charText);
-    console.log(len);
-    
-
-    for(let i = 0;i <len;i++){
-      let Temp = `${name}[${i}]`;
-      console.log(Temp);
-      if (i < len){
-        videoGenerator(list[i],eval(Temp));
-      }
-      // else {
-      //   videoGenerator(list[i],dumiGen(i));
-      // }
-    }
-  }
-}
-
-
-function dumiGen(i){
-
-  while (i >= dumi.length){
-    videoRandomGen(1);
-  }
-  return dumi[i];
-}
-
-
-function videoGenerator(element,object) {
-
-  //document.querySelector().innerHTML
-  element.querySelector('.vidio_thumb').setAttribute("href",object.contentLink);
-  element.querySelector('.content__img').setAttribute("src",object.thumbnail);
-  element.querySelector('.content__logo').setAttribute("src",object.logo);
-  element.querySelector('.content__title').setAttribute("href",object.contentLink);
-  element.querySelector('.content__title').innerHTML = object.title ;
-  element.querySelector('.content__info').innerHTML = `${object.view}${object.created}`;
-  
-  element.querySelector('.content__user').setAttribute("href",object.channelLink);
-  element.querySelector('.content__live').style.display = object.live ? "block" : "none";
-  element.querySelector('.content__user').innerHTML = `${object.username}`;
-  element.querySelector('.material-icons.official').style.display = object.official ? "inline" : "none";
-  element.querySelector('.video_time span').innerHTML = object.time;
-
-  
-
-  // console.log(object.thumbnail);
-  // console.log(object.logo);
-  // console.log(object.title);
-  // console.log(object.username);
-  // console.log(object.channelLink);
-  // console.log(object.official );
-  // console.log(object.view);
-  // console.log(object.created);
-  // console.log(object.live);
-}
-
-
-function adClose() {
-  document.querySelector('.primary .ad .ad__img').style.display = 'none';
-}
-
-
-
-
-//https://inpa.tistory.com/entry/JS-%F0%9F%9A%80-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EB%82%B4%EB%A0%A4%EC%84%9C-%ED%8A%B9%EC%A0%95-%EC%98%81%EC%97%AD-%EA%B0%90%EC%A7%80%ED%95%98%EA%B8%B0
-//자동 인식 갱신 실패
-
-
-
-let searchInputEl = document.querySelector('.header__input');
-let searchEl = document.querySelector(".input__block");
-
-searchInputEl.addEventListener('focus', function() {
-  searchEl.classList.add('focused');
-});
-
-searchInputEl.addEventListener('blur', function() {
-  searchEl.classList.remove('focused');
-});
-
-let primaryColumus = 4;
-
-function heightController(){
-  let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
-  
-  let primaryEl = document.querySelector('.primary-area');
-  //console.log(vidioEl.getBoundingClientRect().width);
-  primaryEl.style.setProperty('--primary-columus-height',`${vidioEl.getBoundingClientRect().width * 0.6}`);
-  //primaryEl.style.setProperty('--primary-columus',`${floor(vidioEl.getBoundingClientRect().width / 300)}`);
-  //console.log(vidioEl.getBoundingClientRect().width * 0.6);
-
-  
-}
-
-
-window.addEventListener('resize',columusController);
-
-function columusController(){
-  //Javascript
-
-  heightController()
-
-
-
-  let vidioEl = document.querySelector('.primary-area .content .vidio_thumb');
-  let primaryEl = document.querySelector('.primary-area');
-  console.log(vidioEl.getBoundingClientRect().width);
-  
-  // 계속 떨리는 문제가 발생한다 primaryEl 영역 크기 별 조건을 추가하자
-  if ( primaryEl.getBoundingClientRect().width < 560 ){
-    
-    if (vidioEl.getBoundingClientRect().width < 240) {
-      primaryColumus = 1;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-    }
-
-    else if (vidioEl.getBoundingClientRect().width > 320) {
-      primaryColumus = 1;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-    }
-  }
-  else if ( primaryEl.getBoundingClientRect().width > 559 && primaryEl.getBoundingClientRect().width < 770){
-    
-    if (vidioEl.getBoundingClientRect().width < 240) {
-
-      primaryColumus = 1;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(2);
-
-    }
-    else if (vidioEl.getBoundingClientRect().width > 320) {
-      primaryColumus = 2;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(2);
-    }
-  }
-
-  else if ( primaryEl.getBoundingClientRect().width > 769 && primaryEl.getBoundingClientRect().width < 1150){
-    
-    if (vidioEl.getBoundingClientRect().width < 240) {
-      primaryColumus = 2;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(3);
-
-    }
-    else if (vidioEl.getBoundingClientRect().width > 380) {
-      primaryColumus = 3;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(3);
-    }
-  }
-  else if ( primaryEl.getBoundingClientRect().width > 1149 && primaryEl.getBoundingClientRect().width < 1530){
-    
-    if (vidioEl.getBoundingClientRect().width < 240) {
-      primaryColumus = 3;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(4);
-
-    }
-    else if (vidioEl.getBoundingClientRect().width > 320) {
-      primaryColumus = 4;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(4);
-    }
-  }
-
-  else if ( primaryEl.getBoundingClientRect().width > 1529 && primaryEl.getBoundingClientRect().width < 1930){
-    
-    if (vidioEl.getBoundingClientRect().width < 300) {
-      primaryColumus = 4;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(5);
-    }
-
-    else if (vidioEl.getBoundingClientRect().width > 800) {
-      primaryColumus = 4;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(5);
-    }
-    //grid 1칸에서 full 사이즈로 넘어갈 때 아티클 하나의 사이즈가 일시적으로 1500까지 넘어가게 됨
-    // 그렇게 되면 아래의 400이 실행되게되면서 소위 말하는 원하지 않는 동작을 함 그래서 > 800을 부여함
-
-    else if (vidioEl.getBoundingClientRect().width > 400) {
-      primaryColumus = 5;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(5);
-    }
-
-    else if (vidioEl.getBoundingClientRect().width > 360) {
-      primaryColumus = 4;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(5);
-
-    }
-    
-  }
-  else if ( primaryEl.getBoundingClientRect().width > 1929 && primaryEl.getBoundingClientRect().width < 2400){
-    
-    if (vidioEl.getBoundingClientRect().width < 310) {
-      primaryColumus = 5;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(6);
-
-    }
-    else if (vidioEl.getBoundingClientRect().width > 440) {
-      primaryColumus = 6;
-      primaryEl.style.setProperty('--primary-columus',`${primaryColumus}`);
-      console.log(6);
-    }
-  }
-}
-
-
-function onHtml(){
-  menuSet("dumi");
-  //adRendom();
-  heightController();
-  columusController();
-  resetObserve();
-}
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-        <script src="https://utteranc.es/client.js" 
-          repo="mineclover/hexo-comment" 
-          issue-term="" 
-          label="Comment" 
-          theme="github-light" 
-          crossorigin="anonymous" 
-          async>
-        </script>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/14/test/js/data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="softer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev_FE Softer">
-      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Dev_FE Softer">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/14/test/js/data/" class="post-title-link" itemprop="url">제목 없음</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">작성일</span>
-
-      <time title="Post created: 2022-10-14 15:53:59" itemprop="dateCreated datePublished" datetime="2022-10-14T15:53:59+09:00">2022-10-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Updated at: 2022-10-12 16:32:04" itemprop="dateModified" datetime="2022-10-12T16:32:04+09:00">2022-10-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          var game = [];
-var edu = [];
-var music = [];
-var coding = [];
-var pit = [];
-var dumi = [];
-
-
-game.push({
-  thumbnail : "dumidata/thummbnail_25.jpg",
-  logo : 'dumidata/logo_03.jpg',
-  title: '링크 있는 데이터 green',
-  username : '나머지는 링크 # 처리',
-  contentLink : 'https://www.youtube.com/watch?v=Aj_lUHETGl0',
-  channelLink : 'https://www.youtube.com/channel/UCiv2gnRHHWjKAOLVkOUGCEw',
-  official : true,
-  view : '조회수 1.4만회·',
-  created : '3일전',
-  live : false,
-  time : "10:04",
-});
-
-game.push({
-  thumbnail : "dumidata/thummbnail_10.jpg",
-  logo : 'dumidata/logo_11.jpg',
-  title: '소환사의 협곡 나들이',
-  username : '만당만당',
-  contentLink : '#만당',
-  channelLink : '#',
-  official : true,
-  view : '조회수 3.4만회·',
-  created : '3일전',
-  live : false,
-  time : "10:04",
-});
-
-edu.push ({
-  thumbnail : 'dumidata/thummbnail_06.jpg',
-  logo : 'dumidata/logo_17.jpg',
-  title: '스티부가 알려주는 진짜 쉬운 프로그래밍',
-  username : '스티부',
-  contentLink : '#',
-  channelLink : '#',
-  official : true,
-  view : '5.3만명 시청중',
-  created : '',
-  live : true,
-  time : "10:04",
-});
-
-music.push( {
-  thumbnail : 'dumidata/thummbnail_15.jpg',
-  logo : 'dumidata/logo_24.jpg',
-  title: '피곤할 때 듣는 노래 24시간',
-  username : '수면테라피',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '조회수 164만회·',
-  created : '1달전',
-  live : false,
-  time : "10:04",
-} );
-
-music.push ( {
-  thumbnail : 'dumidata/thummbnail_21.jpg',
-  logo : 'dumidata/logo_28.jpg',
-  title: '아이돌 공연 댓글 모음 ver.28',
-  username : '사생팬 아닙니다',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '조회수 1064만회·',
-  created : '3달전',
-  live : false,
-  time : "10:04",
-});
-
-music.push ( {
-  thumbnail : 'dumidata/thummbnail_13.jpg',
-  logo : 'dumidata/logo_30.jpg',
-  title: '집중 잘되는 음악 실시간 Live',
-  username : '잔잔한 음악',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '913명 시청중',
-  created : '',
-  live : true,
-  time : "10:04",
-});
-
-music.push ( {
-  thumbnail : 'dumidata/thummbnail_27.jpg',
-  logo : 'dumidata/logo_30.jpg',
-  title: '편안한 분위기 플레이리스트',
-  username : '잔잔한 음악',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '조회수 4.6만회',
-  created : '',
-  live : false,
-  time : "10:04",
-});
-
-pit.push ( {
-  thumbnail : 'dumidata/thummbnail_29.jpg',
-  logo : 'dumidata/logo_10.jpg',
-  title: '100일 완성 건강 루틴 피트니스 3일차',
-  username : '신나는 요가',
-  contentLink : '#',
-  channelLink : '#',
-  official : true,
-  view : '93명 시청중',
-  created : '',
-  live : true,
-  time : "10:04",
-});
-
-pit.push({
-  thumbnail : 'dumidata/thummbnail_29.jpg',
-  logo : 'dumidata/logo_10.jpg',
-  title: '100일 완성 건강 루틴 피트니스 2일차',
-  username : '신나는 요가',
-  contentLink : '#',
-  channelLink : '#',
-  official : true,
-  view : '조회수 3001회·',
-  created : '스트리밍 시간 : 1일전',
-  live : false,
-  time : "10:04",
-});
-
-
-coding.push( {
-  thumbnail : 'dumidata/thummbnail_28.jpg',
-  logo : 'dumidata/logo_25.jpg',
-  title: 'IT 인재가 되기 위한 101가지',
-  username : '국제IT인력양성협회',
-  contentLink : '#',
-  channelLink : '#',
-  official : true,
-  view : '조회수 3001회·',
-  created : '2주전',
-  live : false,
-  time : "10:04",
-});
-
-coding.push( {
-  thumbnail : 'dumidata/thummbnail_22.jpg',
-  logo : 'dumidata/logo_16.jpg',
-  title: '야너두 할 수 있다! 파이썬 업무 자동화',
-  username : '너두코딩',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '조회수 3.3만회·',
-  created : '1년전',
-  live : false,
-  time : "10:04",
-});
-
-coding.push({
-  thumbnail : 'dumidata/thummbnail_22.jpg',
-  
-  logo : 'dumidata/logo_16.jpg',
-  
-  
-  title: '야너두 할 수 있다! 파이썬 업무 자동화-02',
-  
-  username : '너두코딩',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  
-  
-  view : '조회수 3001회·',
-  created : '1년전',
-  
-  live : false,
-  time : "10:04",
-});
-
-coding.push({
-  thumbnail : 'dumidata/thummbnail_14.jpg',
-  logo : 'dumidata/logo_16.jpg',
-  title: '고마워 과거의 나! 특집 파이썬 특강',
-  username : '너두코딩',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '조회수 3천회·',
-  created : '5일전',
-  live : false,
-  time : "10:04",
-});
-
-coding.push({
-  thumbnail : 'dumidata/thummbnail_14.jpg',
-  logo : 'dumidata/logo_16.jpg',
-  title: '신입이니? 이거 공부해와! 파이썬 업무 자동화-01',
-  username : '너두코딩',
-  contentLink : '#',
-  channelLink : '#',
-  official : false,
-  view : '조회수 10.2만회·',
-  created : '1년전',
-  live : false,
-  time : "10:04",
-});
-
-//사진 번호에 이름 따라올건데.. 그거 적용해도 되지 않을까
-var logoName = ['','빨강','주황','연두','초록','하늘','파랑','보라','보라보라','웃긴댓글','예쁜누나','만당','피지컬갤러리','ONLINE Tutorials','스티부','제페토 안경','나도 코딩','흰머리주황눈','헤이스트','인프런','EO','키리','조코딩','회색머리 별눈','잡상싱','돈좋아','비디오 에디터','후론투','투더제이','메켓','플레이리스트','덕양소','짐코딩','구글휴먼'];
-//나머지도 하면될거같ㄷ..ㅏ.. 으어..
-
-function videoRandomGen(num){
-
-  for(let i = 0; i < num; i++){
-    var randomNum = [];
-    randomNum.push(Math.floor(Math.random() * 34 + 1));
-    //썸네일 수
-    randomNum.push(Math.floor(Math.random() * 33 + 1));
-    //로고 수
-    randomNum.push(Math.floor(Math.random() * 2000 + 10));
-    //시간
-    //https://blogpack.tistory.com/600
-    //숫자 자릿수 맞추기 01, 02
-    randomNum[0] =  '' + randomNum[0];
-    randomNum[0] = randomNum[0].padStart(2,'0');
-    
-    randomNum[1] =  '' + randomNum[1];
-    randomNum[1] = randomNum[1].padStart(2,'0');
-
-    randomNum.push(Boolean(Math.floor(Math.random()*4)));
-    //floor 가 잘 안되서 round 로 바꿈 다시 floor로 돌림
-    //official 랜덤 숫자 높을 수록 확률 증가
-    //삼항 연산자는 값 ? 참 : 거짓
-    console.log(randomNum[2]);
-    
-      console.log(randomNum[2]);
-      dumi.push ({
-        thumbnail : `dumidata/thummbnail_${randomNum[0]}.jpg`,
-        logo : `dumidata/logo_${randomNum[1]}.jpg`,
-        title: `아무 컨텐츠_0${dumi.length}`,
-        username : `${logoName[parseInt(randomNum[1])]}_0${dumi.length}`,
-        contentLink : '#',
-        channelLink : '#',
-        official : randomNum[2],
-        view : '조회수 N만회·',
-        created : 'N일전',
-        live : false,
-        time : `${Math.floor(randomNum[2]/60)}:${(randomNum[2]%60).toString().padStart(2,'0')}`,
-      });
-      
-    
-    
-    // else if(name == 'music') {
-      
-    //   music.push ({
-    //     thumbnail : `dumidata/thummbnail_${randomNum[0]}.jpg`,
-    //     logo : `dumidata/logo_${randomNum[1]}.jpg`,
-    //     title: `아무 게임_0${music.length}`,
-    //     username : `musician_0${music.length}`,
-    //     contentLink : '#',
-    //     channelLink : '#',
-        
-    //     official : randomNum[2],
-    //     view : '조회수 N만회·',
-    //     created : 'N일전',
-    //     live : false
-    //   });
-    // }
-
-
-  }
-}
-videoRandomGen(24)
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-        <script src="https://utteranc.es/client.js" 
-          repo="mineclover/hexo-comment" 
-          issue-term="" 
-          label="Comment" 
-          theme="github-light" 
-          crossorigin="anonymous" 
-          async>
-        </script>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/14/daily-notes/2022-10-14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="softer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dev_FE Softer">
-      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Dev_FE Softer">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/14/daily-notes/2022-10-14/" class="post-title-link" itemprop="url">2022-10-14-[TIL]daily-note</a>
+          <a href="/2022/10/12/Validation-tips/" class="post-title-link" itemprop="url">검증 팁</a>
         </h2>
 
         <div class="post-meta-container">
@@ -950,7 +200,7 @@ videoRandomGen(24)
       <span class="post-meta-item-text">작성일</span>
       
 
-      <time title="Post created: 2022-10-14 15:30:00 / Updated at: 15:46:22" itemprop="dateCreated datePublished" datetime="2022-10-14T15:30:00+09:00">2022-10-14</time>
+      <time title="Post created: 2022-10-12 21:33:40 / Updated at: 21:50:18" itemprop="dateCreated datePublished" datetime="2022-10-12T21:33:40+09:00">2022-10-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -958,7 +208,7 @@ videoRandomGen(24)
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/til/" itemprop="url" rel="index"><span itemprop="name">til</span></a>
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
         </span>
     </span>
 
@@ -972,7 +222,9 @@ videoRandomGen(24)
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LIST &quot;File Path: &quot; + file.path</span><br><span class="line">WHERE file.ctime &gt; date(2022-10-14) AND file.ctime &lt; date (2022-10-14) + dur(1 day)</span><br></pre></td></tr></table></figure>
+          <p>코드 검증, 함수 모듈 만들거나 , 재귀함수 만들거나 기타 기능적인 구현할 때<br>최대한 깨끗한 상태에서 하는 것을 권장한다</p>
+<p>ex ) 새 탭의 devtool console 과 빈 파일 or 메모장 활용</p>
+<p>작업 중인 영역에서는 이미 세팅된 것이 많아서 ( 오염되있어서 )<br>잘못된 결과가 나올 때가 많고, 잘못된 결과를 결과랍시고 믿어서 더 문제가 된다</p>
 
       
     </div>
@@ -1007,7 +259,7 @@ videoRandomGen(24)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/this-ex/">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/Recursion%20Function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1025,7 +277,100 @@ videoRandomGen(24)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/12/javascript/this-ex/" class="post-title-link" itemprop="url">this-ex</a>
+          <a href="/2022/10/12/javascript/Recursion%20Function/" class="post-title-link" itemprop="url">재귀함수</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+      
+
+      <time title="Post created: 2022-10-12 21:27:59 / Updated at: 22:03:40" itemprop="dateCreated datePublished" datetime="2022-10-12T21:27:59+09:00">2022-10-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javascript/functions/" itemprop="url" rel="index"><span itemprop="name">functions</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>본인을 재귀하는 형태로 설계 됨</p>
+<p>보통 노드 조작할 때 root 찾아내거나<br>아니면 <strong>원하는 답이 나올 때 까지</strong> 반복해야할 때</p>
+<p>( 최대 반복을 지정하거나 , 무조건 끝날 수 있는 코드를 작성할 것 )</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+        <script src="https://utteranc.es/client.js" 
+          repo="mineclover/hexo-comment" 
+          issue-term="" 
+          label="Comment" 
+          theme="github-light" 
+          crossorigin="anonymous" 
+          async>
+        </script>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/hexo-tip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="softer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev_FE Softer">
+      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Dev_FE Softer">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/12/hexo-tip/" class="post-title-link" itemprop="url">Hexo-Tip</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1036,14 +381,14 @@ videoRandomGen(24)
       </span>
       <span class="post-meta-item-text">작성일</span>
 
-      <time title="Post created: 2022-10-12 21:56:08" itemprop="dateCreated datePublished" datetime="2022-10-12T21:56:08+09:00">2022-10-12</time>
+      <time title="Post created: 2022-10-12 21:21:45" itemprop="dateCreated datePublished" datetime="2022-10-12T21:21:45+09:00">2022-10-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Updated at: 2022-10-14 15:49:24" itemprop="dateModified" datetime="2022-10-14T15:49:24+09:00">2022-10-14</time>
+      <time title="Updated at: 2022-10-14 15:49:44" itemprop="dateModified" datetime="2022-10-14T15:49:44+09:00">2022-10-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1065,8 +410,102 @@ videoRandomGen(24)
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="/img/this-ex.png"></p>
-<p>일반 함수로 선언된 것은<br>호출 위치에서 정의된다 !&#x3D; 선언된 자리에서는 값이 부여되지 않는다</p>
+          <p>&amp; 는 동시 실행<br>&amp;&amp; 는 순차 실행</p>
+<p>프리뷰</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>서버 올리기</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo deploy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>링크에 @ 된다 근데 쓰면 안된다<br><a target="_blank" rel="noopener" href="https://feel5ny.github.io/2019/08/09/HTTP_002/">가장 잘 나온 문서</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+        <script src="https://utteranc.es/client.js" 
+          repo="mineclover/hexo-comment" 
+          issue-term="" 
+          label="Comment" 
+          theme="github-light" 
+          crossorigin="anonymous" 
+          async>
+        </script>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/callback-function-concept/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="softer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dev_FE Softer">
+      <meta itemprop="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Dev_FE Softer">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/12/javascript/callback-function-concept/" class="post-title-link" itemprop="url">callback 함수의 뜻</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">작성일</span>
+      
+
+      <time title="Post created: 2022-10-12 21:09:34 / Updated at: 21:11:48" itemprop="dateCreated datePublished" datetime="2022-10-12T21:09:34+09:00">2022-10-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>다른 함수의 인자로써 넘겨진 후 특정 이벤트에 의해 호출되는 함수</strong></p>
+<p><a target="_blank" rel="noopener" href="https://ko.javascript.info/callbacks">콜백함수 예제, 모던 자바스크립트</a></p>
 
       
     </div>
@@ -1094,7 +533,7 @@ videoRandomGen(24)
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
   </nav>
 
 </div>
