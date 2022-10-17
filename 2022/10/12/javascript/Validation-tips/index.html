@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="&amp; 는 동시 실행&amp;&amp; 는 순차 실행 프리뷰 12hexo clean &amp;&amp; hexo g &amp;&amp; hexo s  서버 올리기 12hexo clean &amp;&amp; hexo g &amp;&amp; hexo deploy  링크에 @ 된다 근데 쓰면 안된다가장 잘 나온 문서">
+    <meta name="description" content="코드 검증, 함수 모듈 만들거나 , 재귀함수 만들거나 기타 기능적인 구현할 때최대한 깨끗한 상태에서 하는 것을 권장한다 ex ) 새 탭의 devtool console 과 빈 파일 or 메모장 활용 작업 중인 영역에서는 이미 세팅된 것이 많아서 ( 오염되있어서 )잘못된 결과가 나올 때가 많고, 잘못된 결과를 결과랍시고 믿어서 더 문제가 된다">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-Tip">
-<meta property="og:url" content="https://mineclover.github.io/2022/10/12/hexo-tip/index.html">
+<meta property="og:title" content="검증 팁">
+<meta property="og:url" content="https://mineclover.github.io/2022/10/12/javascript/Validation-tips/index.html">
 <meta property="og:site_name" content="Dev_FE Softer">
-<meta property="og:description" content="&amp; 는 동시 실행&amp;&amp; 는 순차 실행 프리뷰 12hexo clean &amp;&amp; hexo g &amp;&amp; hexo s  서버 올리기 12hexo clean &amp;&amp; hexo g &amp;&amp; hexo deploy  링크에 @ 된다 근데 쓰면 안된다가장 잘 나온 문서">
+<meta property="og:description" content="코드 검증, 함수 모듈 만들거나 , 재귀함수 만들거나 기타 기능적인 구현할 때최대한 깨끗한 상태에서 하는 것을 권장한다 ex ) 새 탭의 devtool console 과 빈 파일 or 메모장 활용 작업 중인 영역에서는 이미 세팅된 것이 많아서 ( 오염되있어서 )잘못된 결과가 나올 때가 많고, 잘못된 결과를 결과랍시고 믿어서 더 문제가 된다">
 <meta property="og:locale" content="ko_KR">
-<meta property="article:published_time" content="2022-10-12T12:21:45.000Z">
-<meta property="article:modified_time" content="2022-10-14T11:14:17.525Z">
+<meta property="article:published_time" content="2022-10-12T12:33:40.000Z">
+<meta property="article:modified_time" content="2022-10-12T12:50:18.000Z">
 <meta property="article:author" content="softer">
 <meta property="article:tag" content="패스트캠퍼스">
 <meta property="article:tag" content="국비지원교육">
@@ -36,18 +36,18 @@
 <meta property="article:tag" content="MegabyteSchool">
 <meta property="article:tag" content="개발자취업부트캠프">
 <meta property="article:tag" content="내일배움카드">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="박영웅 강사님">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mineclover.github.io/2022/10/12/hexo-tip/">
+<link rel="canonical" href="https://mineclover.github.io/2022/10/12/javascript/Validation-tips/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/2022/10/12/hexo-tip/","path":"2022/10/12/hexo-tip/","title":"Hexo-Tip"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/2022/10/12/javascript/Validation-tips/","path":"2022/10/12/javascript/Validation-tips/","title":"검증 팁"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo-Tip | Dev_FE Softer</title>
+<title>검증 팁 | Dev_FE Softer</title>
   
 
 
@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -140,7 +140,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">태그</span></a>
       </div>
   </nav>
@@ -179,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
-    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/hexo-tip/">
+    <link itemprop="mainEntityOfPage" href="https://mineclover.github.io/2022/10/12/javascript/Validation-tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hexo-Tip | Dev_FE Softer">
+      <meta itemprop="name" content="검증 팁 | Dev_FE Softer">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo-Tip
+          검증 팁
         </h1>
 
         <div class="post-meta-container">
@@ -207,15 +207,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">작성일</span>
+      
 
-      <time title="Post created: 2022-10-12 21:21:45" itemprop="dateCreated datePublished" datetime="2022-10-12T21:21:45+09:00">2022-10-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Updated at: 2022-10-14 20:14:17" itemprop="dateModified" datetime="2022-10-14T20:14:17+09:00">2022-10-14</time>
+      <time title="Post created: 2022-10-12 21:33:40 / Updated at: 21:50:18" itemprop="dateCreated datePublished" datetime="2022-10-12T21:33:40+09:00">2022-10-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -223,7 +217,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
         </span>
     </span>
 
@@ -237,14 +231,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>&amp; 는 동시 실행<br>&amp;&amp; 는 순차 실행</p>
-<p>프리뷰</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>서버 올리기</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo deploy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>링크에 @ 된다 근데 쓰면 안된다<br><a target="_blank" rel="noopener" href="https://feel5ny.github.io/2019/08/09/HTTP_002/">가장 잘 나온 문서</a></p>
+        <p>코드 검증, 함수 모듈 만들거나 , 재귀함수 만들거나 기타 기능적인 구현할 때<br>최대한 깨끗한 상태에서 하는 것을 권장한다</p>
+<p>ex ) 새 탭의 devtool console 과 빈 파일 or 메모장 활용</p>
+<p>작업 중인 영역에서는 이미 세팅된 것이 많아서 ( 오염되있어서 )<br>잘못된 결과가 나올 때가 많고, 잘못된 결과를 결과랍시고 믿어서 더 문제가 된다</p>
 
     </div>
 
@@ -260,32 +249,24 @@
               <a href="/tags/MegabyteSchool/" rel="tag"># MegabyteSchool</a>
               <a href="/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%B7%A8%EC%97%85%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84/" rel="tag"># 개발자취업부트캠프</a>
               <a href="/tags/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%B9%B4%EB%93%9C/" rel="tag"># 내일배움카드</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%EB%B0%95%EC%98%81%EC%9B%85-%EA%B0%95%EC%82%AC%EB%8B%98/" rel="tag"># 박영웅 강사님</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/10/12/javascript/callback-function-concept/" rel="prev" title="callback 함수의 뜻">
-                  <i class="fa fa-chevron-left"></i> callback 함수의 뜻
+                <a href="/2022/10/12/javascript/Recursion%20Function/" rel="prev" title="재귀함수">
+                  <i class="fa fa-chevron-left"></i> 재귀함수
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/10/12/javascript/Recursion%20Function/" rel="next" title="재귀함수">
-                  재귀함수 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/10/12/javascript/web-api-concept/" rel="next" title="WEB-API에 대해">
+                  WEB-API에 대해 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
     </footer>
-        <script src="https://utteranc.es/client.js" 
-          repo="mineclover/hexo-comment" 
-          issue-term="" 
-          label="Comment" 
-          theme="github-light" 
-          crossorigin="anonymous" 
-          async>
-        </script>
   </article>
 </div>
 
