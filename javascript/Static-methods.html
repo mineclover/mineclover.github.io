@@ -20,26 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    <meta name="description" content="class 내에서 정적 메서드는 쓸 수 없다정적 메소드(Static methods)쓰려면 static 을 해서 써야하는데 인스턴스에서는 쓸 수 없다 클래스에서 123456789class User&amp;#123;	constructor(f, x) &amp;#123;	&amp;#125;	test() &amp;#123;	&amp;#125;	static Usertest() &amp;#123;	&amp;#125;&amp;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dev_FE Softer">
-<meta property="og:url" content="https://mineclover.github.io/archives/2222/index.html">
+<meta property="og:title" content="정적 메소드(Static methods)">
+<meta property="og:url" content="https://mineclover.github.io/javascript/Static-methods.html">
 <meta property="og:site_name" content="Dev_FE Softer">
-<meta property="og:description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+<meta property="og:description" content="class 내에서 정적 메서드는 쓸 수 없다정적 메소드(Static methods)쓰려면 static 을 해서 써야하는데 인스턴스에서는 쓸 수 없다 클래스에서 123456789class User&amp;#123;	constructor(f, x) &amp;#123;	&amp;#125;	test() &amp;#123;	&amp;#125;	static Usertest() &amp;#123;	&amp;#125;&amp;">
 <meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-18T13:07:14.000Z">
+<meta property="article:modified_time" content="2022-10-18T13:09:02.207Z">
 <meta property="article:author" content="softer">
-<meta property="article:tag" content="develop">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="기초">
+<meta property="article:tag" content="class">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mineclover.github.io/archives/2222/">
+<link rel="canonical" href="https://mineclover.github.io/javascript/Static-methods">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":"","permalink":"","path":"archives/2222/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/Static-methods.html","path":"javascript/Static-methods.html","title":"정적 메소드(Static methods)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>아카이브 | Dev_FE Softer</title>
+<title>정적 메소드(Static methods) | Dev_FE Softer
+</title>
   
 
 
@@ -67,7 +72,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Dev_FE Softer</h1>
+      <p class="site-title">Dev_FE Softer</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
@@ -96,7 +101,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           목차
@@ -109,6 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#class-%EB%82%B4%EC%97%90%EC%84%9C-%EC%A0%95%EC%A0%81-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%93%B8-%EC%88%98-%EC%97%86%EB%8B%A4"><span class="nav-number">1.</span> <span class="nav-text">class 내에서 정적 메서드는 쓸 수 없다</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%88%EC%8B%9C"><span class="nav-number">1.1.</span> <span class="nav-text">예시</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,50 +166,47 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner page posts-expand">
 
 
-  
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">음..! 총 5개의 포스트 포스트를 마저 작성하세요</span>
-      </div>
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2222</span>
-    </div>
+<h1 class="post-title" itemprop="name headline">정적 메소드(Static methods)
+</h1>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2222-10-04T00:10:04+09:00"
-              content="2222-10-04">
-          10-04
-        </time>
-      </div>
+<div class="post-meta-container">
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2222/10/04/javascript/" itemprop="url">
-            <span itemprop="name">javascript graph root</span>
-          </a>
-      </div>
+</header>
 
       
-    </header>
-  </article>
+      
+      <div class="post-body">
+          <h1 id="class-내에서-정적-메서드는-쓸-수-없다"><a href="#class-내에서-정적-메서드는-쓸-수-없다" class="headerlink" title="class 내에서 정적 메서드는 쓸 수 없다"></a>class 내에서 정적 메서드는 쓸 수 없다</h1><p><a href="_drafts/heropy/classes.md#%EC%A0%95%EC%A0%81%20%EB%A9%94%EC%86%8C%EB%93%9C(Static%20methods)">정적 메소드(Static methods)</a><br>쓰려면 static 을 해서 써야하는데</p>
+<p>인스턴스에서는 쓸 수 없다</p>
+<p>클래스에서</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params">f, x</span>) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> <span class="title class_">Usertest</span>() &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>에서 test는 프로토타입이지 메서드가 아니다</p>
+<p>호출 시에도 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="keyword">new</span> <span class="title class_">User</span>(f, x);</span><br><span class="line">a.<span class="title function_">test</span>(); <span class="comment">// O</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title class_">Usertest</span>(); <span class="comment">// O</span></span><br><span class="line">a.<span class="title class_">Usertest</span>(); <span class="comment">// X</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h2><p>Array 내장 프로토타입 중에서<br>혼자 정적 메소드 인게 있다<br><a href="javascript/Array.from().md">Array.from()</a></p>
+
+      </div>
+      
+      
+      
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 

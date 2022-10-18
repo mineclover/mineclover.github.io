@@ -20,26 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    <meta name="description" content="첫글자가 대문자 - 파스칼 케이스클래스, 인터페이스 , 타입 에 쓴다 부모와 요소를 같이 쓰고 __를 쓴다 BEMlet &#x3D; [ 1, 2, 3] 같이 묶어서 선언하는 것을 리터럴 방식 선언이라고 함">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dev_FE Softer">
-<meta property="og:url" content="https://mineclover.github.io/archives/2222/index.html">
+<meta property="og:url" content="https://mineclover.github.io/javascript/naming-%EC%BB%A8%EB%B2%A4%EC%85%98.html">
 <meta property="og:site_name" content="Dev_FE Softer">
-<meta property="og:description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+<meta property="og:description" content="첫글자가 대문자 - 파스칼 케이스클래스, 인터페이스 , 타입 에 쓴다 부모와 요소를 같이 쓰고 __를 쓴다 BEMlet &#x3D; [ 1, 2, 3] 같이 묶어서 선언하는 것을 리터럴 방식 선언이라고 함">
 <meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-18T13:16:15.534Z">
+<meta property="article:modified_time" content="2022-10-17T12:07:02.000Z">
 <meta property="article:author" content="softer">
 <meta property="article:tag" content="develop">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mineclover.github.io/archives/2222/">
+<link rel="canonical" href="https://mineclover.github.io/javascript/naming-%EC%BB%A8%EB%B2%A4%EC%85%98">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":"","permalink":"","path":"archives/2222/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/naming-%EC%BB%A8%EB%B2%A4%EC%85%98.html","path":"javascript/naming-컨벤션.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>아카이브 | Dev_FE Softer</title>
+<title> | Dev_FE Softer
+</title>
   
 
 
@@ -67,7 +70,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Dev_FE Softer</h1>
+      <p class="site-title">Dev_FE Softer</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
@@ -96,7 +99,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           목차
@@ -109,6 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%B2%AB%EA%B8%80%EC%9E%90%EA%B0%80-%EB%8C%80%EB%AC%B8%EC%9E%90-%ED%8C%8C%EC%8A%A4%EC%B9%BC-%EC%BC%80%EC%9D%B4%EC%8A%A4"><span class="nav-number">1.</span> <span class="nav-text">첫글자가 대문자 - 파스칼 케이스</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B6%80%EB%AA%A8%EC%99%80-%EC%9A%94%EC%86%8C%EB%A5%BC-%EA%B0%99%EC%9D%B4-%EC%93%B0%EA%B3%A0-%EB%A5%BC-%EC%93%B4%EB%8B%A4-BEM"><span class="nav-number">2.</span> <span class="nav-text">부모와 요소를 같이 쓰고 __를 쓴다 BEM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,50 +164,39 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner page posts-expand">
 
 
-  
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">음..! 총 5개의 포스트 포스트를 마저 작성하세요</span>
-      </div>
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2222</span>
-    </div>
+<h1 class="post-title" itemprop="name headline">
+</h1>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2222-10-04T00:10:04+09:00"
-              content="2222-10-04">
-          10-04
-        </time>
-      </div>
+<div class="post-meta-container">
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2222/10/04/javascript/" itemprop="url">
-            <span itemprop="name">javascript graph root</span>
-          </a>
-      </div>
+</header>
 
       
-    </header>
-  </article>
+      
+      <div class="post-body">
+          <h1 id="첫글자가-대문자-파스칼-케이스"><a href="#첫글자가-대문자-파스칼-케이스" class="headerlink" title="첫글자가 대문자 - 파스칼 케이스"></a>첫글자가 대문자 - 파스칼 케이스</h1><p>클래스, 인터페이스 , 타입 에 쓴다</p>
+<h1 id="부모와-요소를-같이-쓰고-를-쓴다-BEM"><a href="#부모와-요소를-같이-쓰고-를-쓴다-BEM" class="headerlink" title="부모와 요소를 같이 쓰고 __를 쓴다 BEM"></a>부모와 요소를 같이 쓰고 <code>__</code>를 쓴다 BEM</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><code>let = [ 1, 2, 3]</code> 같이 묶어서 선언하는 것을 리터럴 방식 선언이라고 함</p>
 
-
+      </div>
+      
+      
+      
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 

@@ -20,26 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    <meta name="description" content="만약 콜백함수를 사용해야하는 window 메서드를 쓸 때 화살표가 아닌 함수를 쓰는 것을 지양해야한다 이유인 즉슨 일단 일반 함수를 사용하게 되면 그 메서드는 윈도우 위치에서 실행되고브라우저면 그나마 윈도우인데.. 다른 엔진에서 사용하면 어디로 가는지 추적을 해야하는 상황이 나오는 수준으로.. 추적이 안된다 그래서">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dev_FE Softer">
-<meta property="og:url" content="https://mineclover.github.io/archives/2222/index.html">
+<meta property="og:title" content="Web-API-using">
+<meta property="og:url" content="https://mineclover.github.io/javascript/Web-API-using.html">
 <meta property="og:site_name" content="Dev_FE Softer">
-<meta property="og:description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+<meta property="og:description" content="만약 콜백함수를 사용해야하는 window 메서드를 쓸 때 화살표가 아닌 함수를 쓰는 것을 지양해야한다 이유인 즉슨 일단 일반 함수를 사용하게 되면 그 메서드는 윈도우 위치에서 실행되고브라우저면 그나마 윈도우인데.. 다른 엔진에서 사용하면 어디로 가는지 추적을 해야하는 상황이 나오는 수준으로.. 추적이 안된다 그래서">
 <meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-18T13:11:29.000Z">
+<meta property="article:modified_time" content="2022-10-18T13:12:46.203Z">
 <meta property="article:author" content="softer">
-<meta property="article:tag" content="develop">
+<meta property="article:tag" content="WebAPI">
+<meta property="article:tag" content="가이드라인">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://mineclover.github.io/archives/2222/">
+<link rel="canonical" href="https://mineclover.github.io/javascript/Web-API-using">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":"","permalink":"","path":"archives/2222/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/Web-API-using.html","path":"javascript/Web-API-using.html","title":"Web-API-using"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>아카이브 | Dev_FE Softer</title>
+<title>Web-API-using | Dev_FE Softer
+</title>
   
 
 
@@ -67,7 +71,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Dev_FE Softer</h1>
+      <p class="site-title">Dev_FE Softer</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
@@ -160,50 +164,41 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner page posts-expand">
 
 
-  
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">음..! 총 5개의 포스트 포스트를 마저 작성하세요</span>
-      </div>
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2222</span>
-    </div>
+<h1 class="post-title" itemprop="name headline">Web-API-using
+</h1>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2222-10-04T00:10:04+09:00"
-              content="2222-10-04">
-          10-04
-        </time>
-      </div>
+<div class="post-meta-container">
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2222/10/04/javascript/" itemprop="url">
-            <span itemprop="name">javascript graph root</span>
-          </a>
-      </div>
+</header>
 
       
-    </header>
-  </article>
+      
+      <div class="post-body">
+          <p>만약 콜백함수를 사용해야하는 window 메서드를 쓸 때 화살표가 아닌 함수를 쓰는 것을 지양해야한다</p>
+<p>이유인 즉슨 일단 일반 함수를 사용하게 되면 그 메서드는 윈도우 위치에서 실행되고<br>브라우저면 그나마 윈도우인데..</p>
+<p>다른 엔진에서 사용하면 어디로 가는지 추적을 해야하는 상황이 나오는 수준으로.. 추적이 안된다</p>
+<p>그래서 </p>
 
-
+      </div>
+      
+      
+      
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 

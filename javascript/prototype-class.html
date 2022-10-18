@@ -20,26 +20,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+    <meta name="description" content="프로토 타입이렇게 입력하면 프로토콜을 받을 수 있음 클래스의 개념자바스크립트의 클래스는 다른 클래스와 조금 다르다자바스크립트는 prototype 기반으로 동작한다 프로토타입을 이해하기 위해new와 new로 만들어지는 인스턴스를 이해해야한다 prototype  123456789const fruits &#x3D; new Array(&amp;#x27;Array&amp;#x27;, &amp;#">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dev_FE Softer">
-<meta property="og:url" content="https://mineclover.github.io/archives/2222/index.html">
+<meta property="og:url" content="https://mineclover.github.io/javascript/prototype-class.html">
 <meta property="og:site_name" content="Dev_FE Softer">
-<meta property="og:description" content="최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자">
+<meta property="og:description" content="프로토 타입이렇게 입력하면 프로토콜을 받을 수 있음 클래스의 개념자바스크립트의 클래스는 다른 클래스와 조금 다르다자바스크립트는 prototype 기반으로 동작한다 프로토타입을 이해하기 위해new와 new로 만들어지는 인스턴스를 이해해야한다 prototype  123456789const fruits &#x3D; new Array(&amp;#x27;Array&amp;#x27;, &amp;#">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://mineclover.github.io/javascript/prototype-class/Pasted%20image%2020221017212741.png">
+<meta property="og:image" content="https://mineclover.github.io/javascript/prototype-class/Pasted%20image%2020221017211210.png">
+<meta property="og:image" content="https://mineclover.github.io/javascript/prototype-class/Pasted%20image%2020221017214650.png">
+<meta property="article:published_time" content="2022-10-18T13:19:42.035Z">
+<meta property="article:modified_time" content="2022-10-18T04:34:23.044Z">
 <meta property="article:author" content="softer">
 <meta property="article:tag" content="develop">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mineclover.github.io/javascript/prototype-class/Pasted%20image%2020221017212741.png">
 
 
-<link rel="canonical" href="https://mineclover.github.io/archives/2222/">
+<link rel="canonical" href="https://mineclover.github.io/javascript/prototype-class">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":"","permalink":"","path":"archives/2222/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/prototype-class.html","path":"javascript/prototype-class.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>아카이브 | Dev_FE Softer</title>
+<title> | Dev_FE Softer
+</title>
   
 
 
@@ -67,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Dev_FE Softer</h1>
+      <p class="site-title">Dev_FE Softer</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
@@ -96,7 +103,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           목차
@@ -109,6 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EA%B0%9C%EB%85%90"><span class="nav-number">1.</span> <span class="nav-text">클래스의 개념</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#class-constructor"><span class="nav-number">2.</span> <span class="nav-text">class-constructor</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,50 +168,53 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner page posts-expand">
 
 
-  
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">음..! 총 5개의 포스트 포스트를 마저 작성하세요</span>
-      </div>
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2222</span>
-    </div>
+<h1 class="post-title" itemprop="name headline">
+</h1>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2222-10-04T00:10:04+09:00"
-              content="2222-10-04">
-          10-04
-        </time>
-      </div>
+<div class="post-meta-container">
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2222/10/04/javascript/" itemprop="url">
-            <span itemprop="name">javascript graph root</span>
-          </a>
-      </div>
+</header>
 
       
-    </header>
-  </article>
-
-
+      
+      <div class="post-body">
+          <p>프로토 타입<br><img src="/javascript/prototype-class/Pasted%20image%2020221017212741.png"><br>이렇게 입력하면 프로토콜을 받을 수 있음</p>
+<h1 id="클래스의-개념"><a href="#클래스의-개념" class="headerlink" title="클래스의 개념"></a>클래스의 개념</h1><p>자바스크립트의 클래스는 다른 클래스와 조금 다르다<br>자바스크립트는 prototype 기반으로 동작한다</p>
+<p>프로토타입을 이해하기 위해<br>new와 new로 만들어지는 인스턴스를 이해해야한다</p>
+<p><a href="_drafts/heropy/classes.md#prototype">prototype</a></p>
+<p><img src="/javascript/prototype-class/Pasted%20image%2020221017211210.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const fruits = new Array(&#x27;Array&#x27;, &#x27;Banana&#x27;, &#x27;Cherry&#x27;);</span><br><span class="line"></span><br><span class="line">Array.prototype.heropy = function ()&#123;</span><br><span class="line">console.log(this);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fruits.heropy();</span><br><span class="line"></span><br><span class="line">// [&#x27;Apple&#x27;,&#x27;Banana&#x27;, &#x27;Cherry&#x27;]</span><br></pre></td></tr></table></figure>
+<p>왜 가져와지느냐</p>
+<p>왜 fruits가 this로 지목되느냐<br>prototype에서 this는 호출된 메서드를 호출한 클래스가 들어있는 변수를 this로 잡는다</p>
+<blockquote>
+<p>쉽게 말해서, 타입 내장 메서드 </p>
+</blockquote>
+<p>prototype은 선택한 클래스에 메서드를 선언할 수 있다</p>
+<p>클래스가 상속된 변수들은 클래스에 선언된 메서드 들을 사용할 수 있다<br>this는 이러한 메서드를 부르는 상속된 변수를 참조한다</p>
+<p>이러한 prototype 문법이 ES2015에서부터 class 문법 형태로 문법 변형한 것이다</p>
+<h1 id="class-constructor"><a href="#class-constructor" class="headerlink" title="class-constructor"></a>class-constructor</h1><p><img src="/javascript/prototype-class/Pasted%20image%2020221017214650.png"></p>
+<p>객체지향 정리하면서 정리한적 있는데</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class User &#123;</span><br><span class="line">	constructor(a, b) &#123;</span><br><span class="line">		this.first = a;</span><br><span class="line">		this.last = b;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+      
+      
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+
+
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 
