@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="31-0112345678&#x2F;&#x2F; 사용자로부터 입력받은 휴대폰 전화번호const tel &#x3D; &amp;#x27;010-1234-567팔&amp;#x27;;&#x2F;&#x2F; 정규 표현식 리터럴로 휴대폰 전화번호 패턴을 정의한다.const regExp &#x3D; &#x2F;^\d&amp;#123;3&amp;#125;-\d&amp;#123;4&amp;#125;-\d&amp;#123;4&amp;#125;$&#x2F;;&#x2F;&#x2F; tel이 휴대폰 전화번호 패턴에 매칭하는지">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/31.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="31-0112345678&#x2F;&#x2F; 사용자로부터 입력받은 휴대폰 전화번호const tel &#x3D; &amp;#x27;010-1234-567팔&amp;#x27;;&#x2F;&#x2F; 정규 표현식 리터럴로 휴대폰 전화번호 패턴을 정의한다.const regExp &#x3D; &#x2F;^\d&amp;#123;3&amp;#125;-\d&amp;#123;4&amp;#125;-\d&amp;#123;4&amp;#125;$&#x2F;;&#x2F;&#x2F; tel이 휴대폰 전화번호 패턴에 매칭하는지">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.643Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/31">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/31.html","path":"javascript/mjs-deep-dive/31.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#31-01"><span class="nav-number">1.</span> <span class="nav-text">31-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-02"><span class="nav-number">2.</span> <span class="nav-text">31-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-03"><span class="nav-number">3.</span> <span class="nav-text">31-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-04"><span class="nav-number">4.</span> <span class="nav-text">31-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-05"><span class="nav-number">5.</span> <span class="nav-text">31-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-06"><span class="nav-number">6.</span> <span class="nav-text">31-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-07"><span class="nav-number">7.</span> <span class="nav-text">31-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-08"><span class="nav-number">8.</span> <span class="nav-text">31-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-09"><span class="nav-number">9.</span> <span class="nav-text">31-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-10"><span class="nav-number">10.</span> <span class="nav-text">31-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-11"><span class="nav-number">11.</span> <span class="nav-text">31-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-12"><span class="nav-number">12.</span> <span class="nav-text">31-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-13"><span class="nav-number">13.</span> <span class="nav-text">31-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-14"><span class="nav-number">14.</span> <span class="nav-text">31-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-15"><span class="nav-number">15.</span> <span class="nav-text">31-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-16"><span class="nav-number">16.</span> <span class="nav-text">31-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-17"><span class="nav-number">17.</span> <span class="nav-text">31-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-18"><span class="nav-number">18.</span> <span class="nav-text">31-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-19"><span class="nav-number">19.</span> <span class="nav-text">31-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-20"><span class="nav-number">20.</span> <span class="nav-text">31-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-21"><span class="nav-number">21.</span> <span class="nav-text">31-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-22"><span class="nav-number">22.</span> <span class="nav-text">31-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-23"><span class="nav-number">23.</span> <span class="nav-text">31-23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-24"><span class="nav-number">24.</span> <span class="nav-text">31-24</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-25"><span class="nav-number">25.</span> <span class="nav-text">31-25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-26"><span class="nav-number">26.</span> <span class="nav-text">31-26</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-27"><span class="nav-number">27.</span> <span class="nav-text">31-27</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-28"><span class="nav-number">28.</span> <span class="nav-text">31-28</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-29"><span class="nav-number">29.</span> <span class="nav-text">31-29</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-30"><span class="nav-number">30.</span> <span class="nav-text">31-30</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-31"><span class="nav-number">31.</span> <span class="nav-text">31-31</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-32"><span class="nav-number">32.</span> <span class="nav-text">31-32</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-33"><span class="nav-number">33.</span> <span class="nav-text">31-33</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-34"><span class="nav-number">34.</span> <span class="nav-text">31-34</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-35"><span class="nav-number">35.</span> <span class="nav-text">31-35</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-36"><span class="nav-number">36.</span> <span class="nav-text">31-36</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-37"><span class="nav-number">37.</span> <span class="nav-text">31-37</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-38"><span class="nav-number">38.</span> <span class="nav-text">31-38</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-39"><span class="nav-number">39.</span> <span class="nav-text">31-39</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-40"><span class="nav-number">40.</span> <span class="nav-text">31-40</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-41"><span class="nav-number">41.</span> <span class="nav-text">31-41</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#31-42"><span class="nav-number">42.</span> <span class="nav-text">31-42</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>31</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="31-01"><a href="#31-01" class="headerlink" title="31-01"></a>31-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 사용자로부터 입력받은 휴대폰 전화번호</span></span><br><span class="line"><span class="keyword">const</span> tel = <span class="string">&#x27;010-1234-567팔&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 정규 표현식 리터럴로 휴대폰 전화번호 패턴을 정의한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^\d&#123;3&#125;-\d&#123;4&#125;-\d&#123;4&#125;$/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tel이 휴대폰 전화번호 패턴에 매칭하는지 테스트(확인)한다.</span></span><br><span class="line">regExp.<span class="title function_">test</span>(tel); <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-02"><a href="#31-02" class="headerlink" title="31-02"></a>31-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 패턴: is</span></span><br><span class="line"><span class="comment">// 플래그: i =&gt; 대소문자를 구별하지 않고 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regexp = <span class="regexp">/is/i</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test 메서드는 target 문자열에 대해 정규표현식 regexp의 패턴을 검색하여 매칭 결과를 불리언 값으로 반환한다.</span></span><br><span class="line">regexp.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-03"><a href="#31-03" class="headerlink" title="31-03"></a>31-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> regexp = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="regexp">/is/i</span>); <span class="comment">// ES6</span></span><br><span class="line"><span class="comment">// const regexp = new RegExp(/is/, &#x27;i&#x27;);</span></span><br><span class="line"><span class="comment">// const regexp = new RegExp(&#x27;is&#x27;, &#x27;i&#x27;);</span></span><br><span class="line"></span><br><span class="line">regexp.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-04"><a href="#31-04" class="headerlink" title="31-04"></a>31-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">count</span> = (<span class="params">str, char</span>) =&gt; (str.<span class="title function_">match</span>(<span class="keyword">new</span> <span class="title class_">RegExp</span>(char, <span class="string">&#x27;gi&#x27;</span>)) ?? []).<span class="property">length</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">count</span>(<span class="string">&#x27;Is this all there is?&#x27;</span>, <span class="string">&#x27;is&#x27;</span>); <span class="comment">// -&gt; 3</span></span><br><span class="line"><span class="title function_">count</span>(<span class="string">&#x27;Is this all there is?&#x27;</span>, <span class="string">&#x27;xx&#x27;</span>); <span class="comment">// -&gt; 0</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-05"><a href="#31-05" class="headerlink" title="31-05"></a>31-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line"></span><br><span class="line">regExp.<span class="title function_">exec</span>(target); <span class="comment">// -&gt; [&quot;is&quot;, index: 5, input: &quot;Is this all there is?&quot;, groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-06"><a href="#31-06" class="headerlink" title="31-06"></a>31-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line"></span><br><span class="line">regExp.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-07"><a href="#31-07" class="headerlink" title="31-07"></a>31-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;is&quot;, index: 5, input: &quot;Is this all there is?&quot;, groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-08"><a href="#31-08" class="headerlink" title="31-08"></a>31-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;is&quot;, &quot;is&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-09"><a href="#31-09" class="headerlink" title="31-09"></a>31-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// target 문자열에서 is 문자열을 대소문자를 구별하여 한 번만 검색한다.</span></span><br><span class="line">target.<span class="title function_">match</span>(<span class="regexp">/is/</span>);</span><br><span class="line"><span class="comment">// -&gt; [&quot;is&quot;, index: 5, input: &quot;Is this all there is?&quot;, groups: undefined]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// target 문자열에서 is 문자열을 대소문자를 구별하지 않고 한 번만 검색한다.</span></span><br><span class="line">target.<span class="title function_">match</span>(<span class="regexp">/is/i</span>);</span><br><span class="line"><span class="comment">// -&gt; [&quot;Is&quot;, index: 0, input: &quot;Is this all there is?&quot;, groups: undefined]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// target 문자열에서 is 문자열을 대소문자를 구별하여 전역 검색한다.</span></span><br><span class="line">target.<span class="title function_">match</span>(<span class="regexp">/is/g</span>);</span><br><span class="line"><span class="comment">// -&gt; [&quot;is&quot;, &quot;is&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// target 문자열에서 is 문자열을 대소문자를 구별하지 않고 전역 검색한다.</span></span><br><span class="line">target.<span class="title function_">match</span>(<span class="regexp">/is/ig</span>);</span><br><span class="line"><span class="comment">// -&gt; [&quot;Is&quot;, &quot;is&quot;, &quot;is&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-10"><a href="#31-10" class="headerlink" title="31-10"></a>31-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;is&#x27; 문자열과 매치하는 패턴. 플래그가 생략되었으므로 대소문자를 구별한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// target과 정규 표현식이 매치하는지 테스트한다.</span></span><br><span class="line">regExp.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// target과 정규 표현식의 매칭 결과를 구한다.</span></span><br><span class="line">target.<span class="title function_">match</span>(regExp);</span><br><span class="line"><span class="comment">// -&gt; [&quot;is&quot;, index: 5, input: &quot;Is this all there is?&quot;, groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-11"><a href="#31-11" class="headerlink" title="31-11"></a>31-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;is&#x27; 문자열과 매치하는 패턴. 플래그 i를 추가하면 대소문자를 구별하지 않는다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/i</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp);</span><br><span class="line"><span class="comment">// -&gt; [&quot;Is&quot;, index: 0, input: &quot;Is this all there is?&quot;, groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-12"><a href="#31-12" class="headerlink" title="31-12"></a>31-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;is&#x27; 문자열과 매치하는 패턴.</span></span><br><span class="line"><span class="comment">// 플래그 g를 추가하면 대상 문자열 내에서 패턴과 일치하는 모든 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/is/ig</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;Is&quot;, &quot;is&quot;, &quot;is&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-13"><a href="#31-13" class="headerlink" title="31-13"></a>31-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Is this all there is?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 임의의 3자리 문자열을 대소문자를 구별하여 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/.../g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;Is &quot;, &quot;thi&quot;, &quot;s a&quot;, &quot;ll &quot;, &quot;the&quot;, &quot;re &quot;, &quot;is?&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-14"><a href="#31-14" class="headerlink" title="31-14"></a>31-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb AAA&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27;가 최소 1번, 최대 2번 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A&#123;1,2&#125;/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;A&quot;, &quot;AA&quot;, &quot;A&quot;, &quot;AA&quot;, &quot;A&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-15"><a href="#31-15" class="headerlink" title="31-15"></a>31-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb AAA&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27;가 2번 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A&#123;2&#125;/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;AA&quot;, &quot;AA&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-16"><a href="#31-16" class="headerlink" title="31-16"></a>31-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb AAA&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27;가 최소 2번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A&#123;2,&#125;/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;AA&quot;, &quot;AAA&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-17"><a href="#31-17" class="headerlink" title="31-17"></a>31-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb AAA&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27;가 최소 한 번 이상 반복되는 문자열(&#x27;A, &#x27;AA&#x27;, &#x27;AAA&#x27;, ...)을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;A&quot;, &quot;AA&quot;, &quot;A&quot;, &quot;AAA&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-18"><a href="#31-18" class="headerlink" title="31-18"></a>31-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;color colour&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;colo&#x27; 다음 &#x27;u&#x27;가 최대 한 번(0번 포함) 이상 반복되고 &#x27;r&#x27;이 이어지는 문자열 &#x27;color&#x27;, &#x27;colour&#x27;를 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/colou?r/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;color&quot;, &quot;colour&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-19"><a href="#31-19" class="headerlink" title="31-19"></a>31-19</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27; 또는 &#x27;B&#x27;를 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A|B/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;B&quot;, &quot;A&quot;, &quot;B&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-20"><a href="#31-20" class="headerlink" title="31-20"></a>31-20</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27; 또는 &#x27;B&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="comment">// &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;AAA&#x27;, ... 또는 &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;BBB&#x27;, ...</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/A+|B+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;A&quot;, &quot;AA&quot;, &quot;B&quot;, &quot;BB&quot;, &quot;A&quot;, &quot;B&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-21"><a href="#31-21" class="headerlink" title="31-21"></a>31-21</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA B BB Aa Bb&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27; 또는 &#x27;B&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="comment">// &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;AAA&#x27;, ... 또는 &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;BBB&#x27;, ...</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[AB]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;A&quot;, &quot;AA&quot;, &quot;B&quot;, &quot;BB&quot;, &quot;A&quot;, &quot;B&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-22"><a href="#31-22" class="headerlink" title="31-22"></a>31-22</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;A AA BB ZZ Aa Bb&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27; ~ &#x27;Z&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="comment">// &#x27;A&#x27;, &#x27;AA&#x27;, &#x27;AAA&#x27;, ... 또는 &#x27;B&#x27;, &#x27;BB&#x27;, &#x27;BBB&#x27;, ... ~ 또는 &#x27;Z&#x27;, &#x27;ZZ&#x27;, &#x27;ZZZ&#x27;, ...</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[A-Z]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;A&quot;, &quot;AA&quot;, &quot;BB&quot;, &quot;ZZ&quot;, &quot;A&quot;, &quot;B&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-23"><a href="#31-23" class="headerlink" title="31-23"></a>31-23</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;AA BB Aa Bb 12&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;A&#x27; ~ &#x27;Z&#x27; 또는 &#x27;a&#x27; ~ &#x27;z&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[A-Za-z]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;AA&quot;, &quot;BB&quot;, &quot;Aa&quot;, &quot;Bb&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-24"><a href="#31-24" class="headerlink" title="31-24"></a>31-24</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;AA BB 12,345&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;0&#x27; ~ &#x27;9&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[0-9]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;12&quot;, &quot;345&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-25"><a href="#31-25" class="headerlink" title="31-25"></a>31-25</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;AA BB 12,345&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;0&#x27; ~ &#x27;9&#x27; 또는 &#x27;,&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[0-9,]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;12,345&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-26"><a href="#31-26" class="headerlink" title="31-26"></a>31-26</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;AA BB 12,345&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;0&#x27; ~ &#x27;9&#x27; 또는 &#x27;,&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/[\d,]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;12,345&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;0&#x27; ~ &#x27;9&#x27;가 아닌 문자(숫자가 아닌 문자) 또는 &#x27;,&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line">regExp = <span class="regexp">/[\D,]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;AA BB &quot;, &quot;,&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-27"><a href="#31-27" class="headerlink" title="31-27"></a>31-27</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;Aa Bb 12,345 _$%&amp;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 알파벳, 숫자, 언더스코어, &#x27;,&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/[\w,]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;Aa&quot;, &quot;Bb&quot;, &quot;12,345&quot;, &quot;_&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 알파벳, 숫자, 언더스코어가 아닌 문자 또는 &#x27;,&#x27;가 한 번 이상 반복되는 문자열을 전역 검색한다.</span></span><br><span class="line">regExp = <span class="regexp">/[\W,]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot; &quot;, &quot; &quot;, &quot;,&quot;, &quot; $%&amp;&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-28"><a href="#31-28" class="headerlink" title="31-28"></a>31-28</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;AA BB 12 Aa Bb&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 숫자를 제외한 문자열을 전역 검색한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/[^0-9]+/g</span>;</span><br><span class="line"></span><br><span class="line">target.<span class="title function_">match</span>(regExp); <span class="comment">// -&gt; [&quot;AA BB &quot;, &quot; Aa Bb&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-29"><a href="#31-29" class="headerlink" title="31-29"></a>31-29</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;https://poiemaweb.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;https&#x27;로 시작하는지 검사한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/^https/</span>;</span><br><span class="line"></span><br><span class="line">regExp.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-30"><a href="#31-30" class="headerlink" title="31-30"></a>31-30</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;https://poiemaweb.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;com&#x27;으로 끝나는지 검사한다.</span></span><br><span class="line"><span class="keyword">const</span> regExp = <span class="regexp">/com$/</span>;</span><br><span class="line"></span><br><span class="line">regExp.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-31"><a href="#31-31" class="headerlink" title="31-31"></a>31-31</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">&#x27;https://example.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;http://&#x27; 또는 &#x27;https://&#x27;로 시작하는지 검사한다.</span></span><br><span class="line"><span class="regexp">/^https?:\/\//</span>.<span class="title function_">test</span>(url); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-32"><a href="#31-32" class="headerlink" title="31-32"></a>31-32</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(http|https):\/\<span class="comment">//.test(url); // -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-33"><a href="#31-33" class="headerlink" title="31-33"></a>31-33</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fileName = <span class="string">&#x27;index.html&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;html&#x27;로 끝나는지 검사한다.</span></span><br><span class="line"><span class="regexp">/html$/</span>.<span class="title function_">test</span>(fileName); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-34"><a href="#31-34" class="headerlink" title="31-34"></a>31-34</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;12345&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 숫자로만 이루어진 문자열인지 검사한다.</span></span><br><span class="line"><span class="regexp">/^\d+$/</span>.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-35"><a href="#31-35" class="headerlink" title="31-35"></a>31-35</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27; Hi!&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 하나 이상의 공백으로 시작하는지 검사한다.</span></span><br><span class="line"><span class="regexp">/^[\s]+/</span>.<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-36"><a href="#31-36" class="headerlink" title="31-36"></a>31-36</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = <span class="string">&#x27;abc123&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 알파벳 대소문자 또는 숫자로 시작하고 끝나며 4 ~ 10자리인지 검사한다.</span></span><br><span class="line"><span class="regexp">/^[A-Za-z0-9]&#123;4,10&#125;$/</span>.<span class="title function_">test</span>(id); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-37"><a href="#31-37" class="headerlink" title="31-37"></a>31-37</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> email = <span class="string">&#x27;ungmo2@gmail.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="regexp">/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]&#123;2,3&#125;$/</span>.<span class="title function_">test</span>(email); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-38"><a href="#31-38" class="headerlink" title="31-38"></a>31-38</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?:[a-z0-<span class="number">9</span>!#$%&amp;<span class="string">&#x27;*+/=?^_`&#123;|&#125;~-]+(?:\.[a-z0-9!#$%&amp;&#x27;</span>*+/=?^_<span class="string">`&#123;|&#125;~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*&quot;)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-39"><a href="#31-39" class="headerlink" title="31-39"></a>31-39</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cellphone = <span class="string">&#x27;010-1234-5678&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="regexp">/^\d&#123;3&#125;-\d&#123;3,4&#125;-\d&#123;4&#125;$/</span>.<span class="title function_">test</span>(cellphone); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-40"><a href="#31-40" class="headerlink" title="31-40"></a>31-40</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = <span class="string">&#x27;abc#123&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A-Za-z0-9 이외의 문자가 있는지 검사한다.</span></span><br><span class="line">(<span class="regexp">/[^A-Za-z0-9]/gi</span>).<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-41"><a href="#31-41" class="headerlink" title="31-41"></a>31-41</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="regexp">/[\&#123;\&#125;\[\]\/?.,;:|\)*~`!^\-_+&lt;&gt;@\#$%&amp;\\\=\(\&#x27;\&quot;]/gi</span>).<span class="title function_">test</span>(target); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="31-42"><a href="#31-42" class="headerlink" title="31-42"></a>31-42</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target.<span class="title function_">replace</span>(<span class="regexp">/[^A-Za-z0-9]/gi</span>, <span class="string">&#x27;&#x27;</span>); <span class="comment">// -&gt; abc123</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>31</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

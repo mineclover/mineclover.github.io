@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="47-011234567console.log(&amp;#x27;[Start]&amp;#x27;);foo(); &#x2F;&#x2F; ReferenceError: foo is not defined&#x2F;&#x2F; 발생한 에러를 방치하면 프로그램은 강제 종료된다.&#x2F;&#x2F; 에러에 의해 프로그램이 강제 종료되어 아래 코드는 실행되지 않는다.console.log(&amp;#x27;[End]&amp;#x27;);  47-02123">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/47.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="47-011234567console.log(&amp;#x27;[Start]&amp;#x27;);foo(); &#x2F;&#x2F; ReferenceError: foo is not defined&#x2F;&#x2F; 발생한 에러를 방치하면 프로그램은 강제 종료된다.&#x2F;&#x2F; 에러에 의해 프로그램이 강제 종료되어 아래 코드는 실행되지 않는다.console.log(&amp;#x27;[End]&amp;#x27;);  47-02123">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:28.370Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/47">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/47.html","path":"javascript/mjs-deep-dive/47.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#47-01"><span class="nav-number">1.</span> <span class="nav-text">47-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-02"><span class="nav-number">2.</span> <span class="nav-text">47-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-03"><span class="nav-number">3.</span> <span class="nav-text">47-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-04"><span class="nav-number">4.</span> <span class="nav-text">47-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-05"><span class="nav-number">5.</span> <span class="nav-text">47-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-06"><span class="nav-number">6.</span> <span class="nav-text">47-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-07"><span class="nav-number">7.</span> <span class="nav-text">47-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-08"><span class="nav-number">8.</span> <span class="nav-text">47-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-09"><span class="nav-number">9.</span> <span class="nav-text">47-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-10"><span class="nav-number">10.</span> <span class="nav-text">47-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-11"><span class="nav-number">11.</span> <span class="nav-text">47-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#47-12"><span class="nav-number">12.</span> <span class="nav-text">47-12</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>47</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="47-01"><a href="#47-01" class="headerlink" title="47-01"></a>47-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[Start]&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(); <span class="comment">// ReferenceError: foo is not defined</span></span><br><span class="line"><span class="comment">// 발생한 에러를 방치하면 프로그램은 강제 종료된다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 에러에 의해 프로그램이 강제 종료되어 아래 코드는 실행되지 않는다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[End]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-02"><a href="#47-02" class="headerlink" title="47-02"></a>47-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[Start]&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="title function_">foo</span>();</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;[에러 발생]&#x27;</span>, error);</span><br><span class="line">  <span class="comment">// [에러 발생] ReferenceError: foo is not defined</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 발생한 에러에 적절한 대응을 하면 프로그램이 강제 종료되지 않는다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[End]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-03"><a href="#47-03" class="headerlink" title="47-03"></a>47-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DOM에 button 요소가 존재하지 않으면 querySelector 메서드는 에러를 발생시키지 않고 null을 반환한다.</span></span><br><span class="line"><span class="keyword">const</span> $button = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>); <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line">$button.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;disabled&#x27;</span>);</span><br><span class="line"><span class="comment">// TypeError: Cannot read property &#x27;classList&#x27; of null</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="47-04"><a href="#47-04" class="headerlink" title="47-04"></a>47-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $elem = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#1&#x27;</span>);</span><br><span class="line"><span class="comment">// DOMException: Failed to execute &#x27;querySelector&#x27; on &#x27;Document&#x27;: &#x27;#1&#x27; is not a valid selector.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="47-05"><a href="#47-05" class="headerlink" title="47-05"></a>47-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DOM에 button 요소가 존재하는 경우 querySelector 메서드는 에러를 발생시키지 않고 null을 반환한다.</span></span><br><span class="line"><span class="keyword">const</span> $button = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;button&#x27;</span>); <span class="comment">// null</span></span><br><span class="line">$button?.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;disabled&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-06"><a href="#47-06" class="headerlink" title="47-06"></a>47-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[Start]&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// 실행할 코드(에러가 발생할 가능성이 있는 코드)</span></span><br><span class="line">  <span class="title function_">foo</span>();</span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="comment">// try 코드 블록에서 에러가 발생하면 이 코드 블록의 코드가 실행된다.</span></span><br><span class="line">  <span class="comment">// err에는 try 코드 블록에서 발생한 Error 객체가 전달된다.</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(err); <span class="comment">// ReferenceError: foo is not defined</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  <span class="comment">// 에러 발생과 상관없이 반드시 한 번 실행된다.</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;finally&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// try...catch...finally 문으로 에러를 처리하면 프로그램이 강제 종료되지 않는다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;[End]&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-07"><a href="#47-07" class="headerlink" title="47-07"></a>47-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> error = <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;invalid&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-08"><a href="#47-08" class="headerlink" title="47-08"></a>47-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> @ <span class="number">1</span>;    <span class="comment">// SyntaxError: Invalid or unexpected token</span></span><br><span class="line"><span class="title function_">foo</span>();    <span class="comment">// ReferenceError: foo is not defined</span></span><br><span class="line"><span class="literal">null</span>.<span class="property">foo</span>; <span class="comment">// TypeError: Cannot read property &#x27;foo&#x27; of null</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Array</span>(-<span class="number">1</span>); <span class="comment">// RangeError: Invalid array length</span></span><br><span class="line"><span class="built_in">decodeURIComponent</span>(<span class="string">&#x27;%&#x27;</span>); <span class="comment">// URIError: URI malformed</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="47-09"><a href="#47-09" class="headerlink" title="47-09"></a>47-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// 에러 객체를 생성한다고 에러가 발생하는 것은 아니다.</span></span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;something wrong&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-10"><a href="#47-10" class="headerlink" title="47-10"></a>47-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// 에러 객체를 던지면 catch 코드 블록이 실행되기 시작한다.</span></span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;something wrong&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-11"><a href="#47-11" class="headerlink" title="47-11"></a>47-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 외부에서 전달받은 콜백 함수를 n번만큼 반복 호출한다</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">repeat</span> = (<span class="params">n, f</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 매개변수 f에 전달된 인수가 함수가 아니면 TypeError를 발생시킨다.</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> f !== <span class="string">&#x27;function&#x27;</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">TypeError</span>(<span class="string">&#x27;f must be a function&#x27;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="title function_">f</span>(i); <span class="comment">// i를 전달하면서 f를 호출</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="title function_">repeat</span>(<span class="number">2</span>, <span class="number">1</span>); <span class="comment">// 두 번째 인수가 함수가 아니므로 TypeError가 발생(throw)한다.</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(err); <span class="comment">// TypeError: f must be a function</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="47-12"><a href="#47-12" class="headerlink" title="47-12"></a>47-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">foo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="title class_">Error</span>(<span class="string">&#x27;foo에서 발생한 에러&#x27;</span>); <span class="comment">// ④</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">bar</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="title function_">foo</span>(); <span class="comment">// ③</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">baz</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="title function_">bar</span>(); <span class="comment">// ②</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="title function_">baz</span>(); <span class="comment">// ①</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(err);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>47</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

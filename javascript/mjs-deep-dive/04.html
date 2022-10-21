@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="04-01110 + 20  04-021234567891011&#x2F;&#x2F; 변수는 하나의 값을 저장하기 위한 수단이다.var userId &#x3D; 1;var userName &#x3D; &amp;#x27;Lee&amp;#x27;;&#x2F;&#x2F; 객체나 배열 같은 자료구조를 사용하면 여러 개의 값을 하나로 그룹화해서 하나의 값처럼 사용할 수 있다.var user &#x3D; &amp;#123; id: 1, name: &amp;#x">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/04.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="04-01110 + 20  04-021234567891011&#x2F;&#x2F; 변수는 하나의 값을 저장하기 위한 수단이다.var userId &#x3D; 1;var userName &#x3D; &amp;#x27;Lee&amp;#x27;;&#x2F;&#x2F; 객체나 배열 같은 자료구조를 사용하면 여러 개의 값을 하나로 그룹화해서 하나의 값처럼 사용할 수 있다.var user &#x3D; &amp;#123; id: 1, name: &amp;#x">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.196Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/04">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/04.html","path":"javascript/mjs-deep-dive/04.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#04-01"><span class="nav-number">1.</span> <span class="nav-text">04-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-02"><span class="nav-number">2.</span> <span class="nav-text">04-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-03"><span class="nav-number">3.</span> <span class="nav-text">04-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-04"><span class="nav-number">4.</span> <span class="nav-text">04-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-05"><span class="nav-number">5.</span> <span class="nav-text">04-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-06"><span class="nav-number">6.</span> <span class="nav-text">04-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-07"><span class="nav-number">7.</span> <span class="nav-text">04-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-08"><span class="nav-number">8.</span> <span class="nav-text">04-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-09"><span class="nav-number">9.</span> <span class="nav-text">04-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-10"><span class="nav-number">10.</span> <span class="nav-text">04-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-11"><span class="nav-number">11.</span> <span class="nav-text">04-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-12"><span class="nav-number">12.</span> <span class="nav-text">04-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-13"><span class="nav-number">13.</span> <span class="nav-text">04-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-14"><span class="nav-number">14.</span> <span class="nav-text">04-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-15"><span class="nav-number">15.</span> <span class="nav-text">04-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-16"><span class="nav-number">16.</span> <span class="nav-text">04-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-17"><span class="nav-number">17.</span> <span class="nav-text">04-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-18"><span class="nav-number">18.</span> <span class="nav-text">04-18</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>04</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="04-01"><a href="#04-01" class="headerlink" title="04-01"></a>04-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> + <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-02"><a href="#04-02" class="headerlink" title="04-02"></a>04-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수는 하나의 값을 저장하기 위한 수단이다.</span></span><br><span class="line"><span class="keyword">var</span> userId = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> userName = <span class="string">&#x27;Lee&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체나 배열 같은 자료구조를 사용하면 여러 개의 값을 하나로 그룹화해서 하나의 값처럼 사용할 수 있다.</span></span><br><span class="line"><span class="keyword">var</span> user = &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> users = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;Kim&#x27;</span> &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h1 id="04-03"><a href="#04-03" class="headerlink" title="04-03"></a>04-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="number">10</span> + <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="04-04"><a href="#04-04" class="headerlink" title="04-04"></a>04-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score; <span class="comment">// 변수 선언(변수 선언문)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-05"><a href="#04-05" class="headerlink" title="04-05"></a>04-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> score; <span class="comment">// 변수 선언문</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-06"><a href="#04-06" class="headerlink" title="04-06"></a>04-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score;  <span class="comment">// 변수 선언</span></span><br><span class="line">score = <span class="number">80</span>; <span class="comment">// 값의 할당</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-07"><a href="#04-07" class="headerlink" title="04-07"></a>04-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score = <span class="number">80</span>; <span class="comment">// 변수 선언과 값의 할당</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-08"><a href="#04-08" class="headerlink" title="04-08"></a>04-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> score;  <span class="comment">// ① 변수 선언</span></span><br><span class="line">score = <span class="number">80</span>; <span class="comment">// ② 값의 할당</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// 80</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-09"><a href="#04-09" class="headerlink" title="04-09"></a>04-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> score = <span class="number">80</span>;     <span class="comment">// 변수 선언과 값의 할당</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// 80</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-10"><a href="#04-10" class="headerlink" title="04-10"></a>04-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">score = <span class="number">80</span>; <span class="comment">// 값의 할당</span></span><br><span class="line"><span class="keyword">var</span> score;  <span class="comment">// 변수 선언</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(score); <span class="comment">// ??</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-11"><a href="#04-11" class="headerlink" title="04-11"></a>04-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score = <span class="number">80</span>; <span class="comment">// 변수 선언과 값의 할당</span></span><br><span class="line">score = <span class="number">90</span>;     <span class="comment">// 값의 재할당</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-12"><a href="#04-12" class="headerlink" title="04-12"></a>04-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person, $elem, _name, first_name, val1;</span><br></pre></td></tr></table></figure>
+
+<h1 id="04-13"><a href="#04-13" class="headerlink" title="04-13"></a>04-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 이름, なまえ;</span><br></pre></td></tr></table></figure>
+
+<h1 id="04-14"><a href="#04-14" class="headerlink" title="04-14"></a>04-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first-name; <span class="comment">// SyntaxError: Unexpected token –</span></span><br><span class="line"><span class="keyword">var</span> 1st;        <span class="comment">// SyntaxError: Invalid or unexpected token</span></span><br><span class="line"><span class="keyword">var</span> <span class="variable language_">this</span>;       <span class="comment">// SyntaxError: Unexpected token this</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-15"><a href="#04-15" class="headerlink" title="04-15"></a>04-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstname;</span><br><span class="line"><span class="keyword">var</span> firstName;</span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">FIRSTNAME</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="04-16"><a href="#04-16" class="headerlink" title="04-16"></a>04-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">3</span>;       <span class="comment">// NG. x 변수가 의미하는 바를 알 수 없다.</span></span><br><span class="line"><span class="keyword">var</span> score = <span class="number">100</span>; <span class="comment">// OK. score 변수는 점수를 의미한다.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-17"><a href="#04-17" class="headerlink" title="04-17"></a>04-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 경과 시간. 단위는 날짜다</span></span><br><span class="line"><span class="keyword">var</span> d;                 <span class="comment">// NG</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> elapsedTimeInDays; <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="04-18"><a href="#04-18" class="headerlink" title="04-18"></a>04-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 카멜 케이스 (camelCase)</span></span><br><span class="line"><span class="keyword">var</span> firstName;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 스네이크 케이스 (snake_case)</span></span><br><span class="line"><span class="keyword">var</span> first_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 파스칼 케이스 (PascalCase)</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">FirstName</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 헝가리언 케이스 (typeHungarianCase)</span></span><br><span class="line"><span class="keyword">var</span> strFirstName; <span class="comment">// type + identifier</span></span><br><span class="line"><span class="keyword">var</span> $elem = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myId&#x27;</span>); <span class="comment">// DOM 노드</span></span><br><span class="line"><span class="keyword">var</span> observable$ = <span class="title function_">fromEvent</span>(<span class="variable language_">document</span>, <span class="string">&#x27;click&#x27;</span>); <span class="comment">// RxJS 옵저버블</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>04</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

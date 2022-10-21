@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="35-0112345678910111213&#x2F;&#x2F; ...[1, 2, 3]은 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)console.log(...[1, 2, 3]); &#x2F;&#x2F; 1 2 3&#x2F;&#x2F; 문자열은 이터러블이다.console.log(...&amp;#x27;Hello&amp;#x27;); &#x2F;&#x2F; H e l l o&#x2F;&#x2F; Map과 Set은 이터러블이다.console.log">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/35.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="35-0112345678910111213&#x2F;&#x2F; ...[1, 2, 3]은 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)console.log(...[1, 2, 3]); &#x2F;&#x2F; 1 2 3&#x2F;&#x2F; 문자열은 이터러블이다.console.log(...&amp;#x27;Hello&amp;#x27;); &#x2F;&#x2F; H e l l o&#x2F;&#x2F; Map과 Set은 이터러블이다.console.log">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.692Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/35">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/35.html","path":"javascript/mjs-deep-dive/35.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#35-01"><span class="nav-number">1.</span> <span class="nav-text">35-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-02"><span class="nav-number">2.</span> <span class="nav-text">35-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-03"><span class="nav-number">3.</span> <span class="nav-text">35-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-04"><span class="nav-number">4.</span> <span class="nav-text">35-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-05"><span class="nav-number">5.</span> <span class="nav-text">35-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-06"><span class="nav-number">6.</span> <span class="nav-text">35-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-07"><span class="nav-number">7.</span> <span class="nav-text">35-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-08"><span class="nav-number">8.</span> <span class="nav-text">35-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-09"><span class="nav-number">9.</span> <span class="nav-text">35-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-10"><span class="nav-number">10.</span> <span class="nav-text">35-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-11"><span class="nav-number">11.</span> <span class="nav-text">35-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-12"><span class="nav-number">12.</span> <span class="nav-text">35-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-13"><span class="nav-number">13.</span> <span class="nav-text">35-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-14"><span class="nav-number">14.</span> <span class="nav-text">35-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-15"><span class="nav-number">15.</span> <span class="nav-text">35-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-16"><span class="nav-number">16.</span> <span class="nav-text">35-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-17"><span class="nav-number">17.</span> <span class="nav-text">35-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-18"><span class="nav-number">18.</span> <span class="nav-text">35-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-19"><span class="nav-number">19.</span> <span class="nav-text">35-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-20"><span class="nav-number">20.</span> <span class="nav-text">35-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-21"><span class="nav-number">21.</span> <span class="nav-text">35-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-22"><span class="nav-number">22.</span> <span class="nav-text">35-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-23"><span class="nav-number">23.</span> <span class="nav-text">35-23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#35-24"><span class="nav-number">24.</span> <span class="nav-text">35-24</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>35</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="35-01"><a href="#35-01" class="headerlink" title="35-01"></a>35-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...[1, 2, 3]은 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열은 이터러블이다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...<span class="string">&#x27;Hello&#x27;</span>); <span class="comment">// H e l l o</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Map과 Set은 이터러블이다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...<span class="keyword">new</span> <span class="title class_">Map</span>([[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;1&#x27;</span>], [<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;2&#x27;</span>]])); <span class="comment">// [ &#x27;a&#x27;, &#x27;1&#x27; ] [ &#x27;b&#x27;, &#x27;2&#x27; ]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...<span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])); <span class="comment">// 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 이터러블이 아닌 일반 객체는 스프레드 문법의 대상이 될 수 없다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...&#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;);</span><br><span class="line"><span class="comment">// TypeError: Found non-callable @@iterator</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-02"><a href="#35-02" class="headerlink" title="35-02"></a>35-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 스프레드 문법의 결과는 값이 아니다.</span></span><br><span class="line"><span class="keyword">const</span> list = ...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; <span class="comment">// SyntaxError: Unexpected token ...</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-03"><a href="#35-03" class="headerlink" title="35-03"></a>35-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 배열 arr의 요소 중에서 최대값을 구하기 위해 Math.max를 사용한다.</span></span><br><span class="line"><span class="keyword">const</span> max = <span class="title class_">Math</span>.<span class="title function_">max</span>(arr); <span class="comment">// -&gt; NaN</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-04"><a href="#35-04" class="headerlink" title="35-04"></a>35-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>);       <span class="comment">// -&gt; 1</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>, <span class="number">2</span>);    <span class="comment">// -&gt; 2</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// -&gt; 3</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>();        <span class="comment">// -&gt; -Infinity</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-05"><a href="#35-05" class="headerlink" title="35-05"></a>35-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// -&gt; NaN</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-06"><a href="#35-06" class="headerlink" title="35-06"></a>35-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// apply 함수의 2번째 인수(배열)는 apply 함수가 호출하는 함수의 인수 목록이다.</span></span><br><span class="line"><span class="comment">// 따라서 배열이 펼쳐져서 인수로 전달되는 효과가 있다.</span></span><br><span class="line"><span class="keyword">var</span> max = <span class="title class_">Math</span>.<span class="property">max</span>.<span class="title function_">apply</span>(<span class="literal">null</span>, arr); <span class="comment">// -&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-07"><a href="#35-07" class="headerlink" title="35-07"></a>35-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 스프레드 문법을 사용하여 배열 arr을 1, 2, 3으로 펼쳐서 Math.max에 전달한다.</span></span><br><span class="line"><span class="comment">// Math.max(...[1, 2, 3])은 Math.max(1, 2, 3)과 같다.</span></span><br><span class="line"><span class="keyword">const</span> max = <span class="title class_">Math</span>.<span class="title function_">max</span>(...arr); <span class="comment">// -&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-08"><a href="#35-08" class="headerlink" title="35-08"></a>35-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rest 파라미터는 인수들의 목록을 배열로 전달받는다.</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">...rest</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(rest); <span class="comment">// 1, 2, 3 -&gt; [ 1, 2, 3 ]</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 스프레드 문법은 배열과 같은 이터러블을 펼쳐서 개별적인 값들의 목록을 만든다.</span></span><br><span class="line"><span class="comment">// [1, 2, 3] -&gt; 1, 2, 3</span></span><br><span class="line"><span class="title function_">foo</span>(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br></pre></td></tr></table></figure>
+
+<h1 id="35-09"><a href="#35-09" class="headerlink" title="35-09"></a>35-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>].<span class="title function_">concat</span>([<span class="number">3</span>, <span class="number">4</span>]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-10"><a href="#35-10" class="headerlink" title="35-10"></a>35-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> arr = [...[<span class="number">1</span>, <span class="number">2</span>], ...[<span class="number">3</span>, <span class="number">4</span>]];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-11"><a href="#35-11" class="headerlink" title="35-11"></a>35-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 세 번째 인수 arr2를 해체하여 전달해야 한다.</span></span><br><span class="line"><span class="comment">// 그렇지 않으면 arr1에 arr2 배열 자체가 추가된다.</span></span><br><span class="line">arr1.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">0</span>, arr2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 기대한 결과는 [1, [2, 3], 4]가 아니라 [1, 2, 3, 4]다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1); <span class="comment">// [1, [2, 3], 4]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-12"><a href="#35-12" class="headerlink" title="35-12"></a>35-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">apply 메서드의 2번째 인수(배열)는 apply 메서드가 호출한 splice 메서드의 인수 목록이다.</span></span><br><span class="line"><span class="comment">apply 메서드의 2번째 인수 [1, 0].concat(arr2)는 [1, 0, 2, 3]으로 평가된다.</span></span><br><span class="line"><span class="comment">따라서 splice 메서드에 apply 메서드의 2번째 인수 [1, 0, 2, 3]이 해체되어 전달된다.</span></span><br><span class="line"><span class="comment">즉, arr1[1]부터 0개의 요소를 제거하고 그 자리(arr1[1])에 새로운 요소(2, 3)를 삽입한다.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">splice</span>.<span class="title function_">apply</span>(arr1, [<span class="number">1</span>, <span class="number">0</span>].<span class="title function_">concat</span>(arr2));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-13"><a href="#35-13" class="headerlink" title="35-13"></a>35-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">arr1.<span class="title function_">splice</span>(<span class="number">1</span>, <span class="number">0</span>, ...arr2);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1); <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-14"><a href="#35-14" class="headerlink" title="35-14"></a>35-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> copy = origin.<span class="title function_">slice</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy); <span class="comment">// [1, 2]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy === origin); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-15"><a href="#35-15" class="headerlink" title="35-15"></a>35-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> origin = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> copy = [...origin];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy); <span class="comment">// [1, 2]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy === origin); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-16"><a href="#35-16" class="headerlink" title="35-16"></a>35-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 이터러블이면서 유사 배열 객체인 arguments를 배열로 변환</span></span><br><span class="line">  <span class="keyword">var</span> args = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> args.<span class="title function_">reduce</span>(<span class="keyword">function</span> (<span class="params">pre, cur</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> pre + cur;</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-17"><a href="#35-17" class="headerlink" title="35-17"></a>35-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 이터러블이 아닌 유사 배열 객체</span></span><br><span class="line"><span class="keyword">const</span> arrayLike = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(arrayLike); <span class="comment">// -&gt; [1, 2, 3]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-18"><a href="#35-18" class="headerlink" title="35-18"></a>35-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 이터러블이면서 유사 배열 객체인 arguments를 배열로 변환</span></span><br><span class="line">  <span class="keyword">return</span> [...<span class="variable language_">arguments</span>].<span class="title function_">reduce</span>(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> pre + cur, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-19"><a href="#35-19" class="headerlink" title="35-19"></a>35-19</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rest 파라미터 args는 함수에 전달된 인수들의 목록을 배열로 전달받는다.</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum</span> = (<span class="params">...args</span>) =&gt; args.<span class="title function_">reduce</span>(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> pre + cur, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sum</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-20"><a href="#35-20" class="headerlink" title="35-20"></a>35-20</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 이터러블이 아닌 유사 배열 객체</span></span><br><span class="line"><span class="keyword">const</span> arrayLike = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [...arrayLike];</span><br><span class="line"><span class="comment">// TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-21"><a href="#35-21" class="headerlink" title="35-21"></a>35-21</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Array.from은 유사 배열 객체 또는 이터러블을 배열로 변환한다</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(arrayLike); <span class="comment">// -&gt; [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-22"><a href="#35-22" class="headerlink" title="35-22"></a>35-22</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 스프레드 프로퍼티</span></span><br><span class="line"><span class="comment">// 객체 복사(얕은 복사)</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> copy = &#123; ...obj &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(copy); <span class="comment">// &#123; x: 1, y: 2 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj === copy); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 병합</span></span><br><span class="line"><span class="keyword">const</span> merged = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, ...&#123; <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> &#125; &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(merged); <span class="comment">// &#123; x: 1, y: 2, a: 3, b: 4 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-23"><a href="#35-23" class="headerlink" title="35-23"></a>35-23</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 객체 병합. 프로퍼티가 중복되는 경우, 뒤에 위치한 프로퍼티가 우선권을 갖는다.</span></span><br><span class="line"><span class="keyword">const</span> merged = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">y</span>: <span class="number">10</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(merged); <span class="comment">// &#123; x: 1, y: 10, z: 3 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 특정 프로퍼티 변경</span></span><br><span class="line"><span class="keyword">const</span> changed = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">y</span>: <span class="number">100</span> &#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(changed); <span class="comment">// &#123; x: 1, y: 100 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 추가</span></span><br><span class="line"><span class="keyword">const</span> added = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">z</span>: <span class="number">0</span> &#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(added); <span class="comment">// &#123; x: 1, y: 2, z: 0 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="35-24"><a href="#35-24" class="headerlink" title="35-24"></a>35-24</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 객체 병합. 프로퍼티가 중복되는 경우, 뒤에 위치한 프로퍼티가 우선권을 갖는다.</span></span><br><span class="line"><span class="keyword">const</span> merged = &#123; ...&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;, ...&#123; <span class="attr">y</span>: <span class="number">10</span>, <span class="attr">z</span>: <span class="number">3</span> &#125; &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(merged); <span class="comment">// &#123; x: 1, y: 10, z: 3 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 특정 프로퍼티 변경</span></span><br><span class="line"><span class="keyword">const</span> changed = &#123; ...&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;, <span class="attr">y</span>: <span class="number">100</span> &#125;;</span><br><span class="line"><span class="comment">// changed = &#123; ...&#123; x: 1, y: 2 &#125;, ...&#123; y: 100 &#125; &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(changed); <span class="comment">// &#123; x: 1, y: 100 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 추가</span></span><br><span class="line"><span class="keyword">const</span> added = &#123; ...&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;, <span class="attr">z</span>: <span class="number">0</span> &#125;;</span><br><span class="line"><span class="comment">// added = &#123; ...&#123; x: 1, y: 2 &#125;, ...&#123; z: 0 &#125; &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(added); <span class="comment">// &#123; x: 1, y: 2, z: 0 &#125;</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>35</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

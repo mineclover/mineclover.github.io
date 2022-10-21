@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="32-0112const strObj &#x3D; new String();console.log(strObj); &#x2F;&#x2F; String &amp;#123;length: 0, [[PrimitiveValue]]: &quot;&quot;&amp;#125;  32-02123const strObj &#x3D; new String(&amp;#x27;Lee&amp;#x27;);console.log(strObj);&#x2F;&#x2F; Str">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/32.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="32-0112const strObj &#x3D; new String();console.log(strObj); &#x2F;&#x2F; String &amp;#123;length: 0, [[PrimitiveValue]]: &quot;&quot;&amp;#125;  32-02123const strObj &#x3D; new String(&amp;#x27;Lee&amp;#x27;);console.log(strObj);&#x2F;&#x2F; Str">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.656Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/32">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/32.html","path":"javascript/mjs-deep-dive/32.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#32-01"><span class="nav-number">1.</span> <span class="nav-text">32-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-02"><span class="nav-number">2.</span> <span class="nav-text">32-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-03"><span class="nav-number">3.</span> <span class="nav-text">32-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-04"><span class="nav-number">4.</span> <span class="nav-text">32-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-05"><span class="nav-number">5.</span> <span class="nav-text">32-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-06"><span class="nav-number">6.</span> <span class="nav-text">32-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-07"><span class="nav-number">7.</span> <span class="nav-text">32-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-08"><span class="nav-number">8.</span> <span class="nav-text">32-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-09"><span class="nav-number">9.</span> <span class="nav-text">32-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-10"><span class="nav-number">10.</span> <span class="nav-text">32-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-11"><span class="nav-number">11.</span> <span class="nav-text">32-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-12"><span class="nav-number">12.</span> <span class="nav-text">32-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-13"><span class="nav-number">13.</span> <span class="nav-text">32-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-14"><span class="nav-number">14.</span> <span class="nav-text">32-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-15"><span class="nav-number">15.</span> <span class="nav-text">32-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-16"><span class="nav-number">16.</span> <span class="nav-text">32-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-17"><span class="nav-number">17.</span> <span class="nav-text">32-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-18"><span class="nav-number">18.</span> <span class="nav-text">32-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-19"><span class="nav-number">19.</span> <span class="nav-text">32-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-20"><span class="nav-number">20.</span> <span class="nav-text">32-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-21"><span class="nav-number">21.</span> <span class="nav-text">32-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-22"><span class="nav-number">22.</span> <span class="nav-text">32-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-23"><span class="nav-number">23.</span> <span class="nav-text">32-23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-24"><span class="nav-number">24.</span> <span class="nav-text">32-24</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-25"><span class="nav-number">25.</span> <span class="nav-text">32-25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-26"><span class="nav-number">26.</span> <span class="nav-text">32-26</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-27"><span class="nav-number">27.</span> <span class="nav-text">32-27</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-28"><span class="nav-number">28.</span> <span class="nav-text">32-28</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-29"><span class="nav-number">29.</span> <span class="nav-text">32-29</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-30"><span class="nav-number">30.</span> <span class="nav-text">32-30</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-31"><span class="nav-number">31.</span> <span class="nav-text">32-31</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-32"><span class="nav-number">32.</span> <span class="nav-text">32-32</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-33"><span class="nav-number">33.</span> <span class="nav-text">32-33</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-34"><span class="nav-number">34.</span> <span class="nav-text">32-34</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-35"><span class="nav-number">35.</span> <span class="nav-text">32-35</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-36"><span class="nav-number">36.</span> <span class="nav-text">32-36</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-37"><span class="nav-number">37.</span> <span class="nav-text">32-37</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-38"><span class="nav-number">38.</span> <span class="nav-text">32-38</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-39"><span class="nav-number">39.</span> <span class="nav-text">32-39</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#32-40"><span class="nav-number">40.</span> <span class="nav-text">32-40</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>32</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="32-01"><a href="#32-01" class="headerlink" title="32-01"></a>32-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj); <span class="comment">// String &#123;length: 0, [[PrimitiveValue]]: &quot;&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-02"><a href="#32-02" class="headerlink" title="32-02"></a>32-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj);</span><br><span class="line"><span class="comment">// String &#123;0: &quot;L&quot;, 1: &quot;e&quot;, 2: &quot;e&quot;, length: 3, [[PrimitiveValue]]: &quot;Lee&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-03"><a href="#32-03" class="headerlink" title="32-03"></a>32-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj[<span class="number">0</span>]); <span class="comment">// L</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-04"><a href="#32-04" class="headerlink" title="32-04"></a>32-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열은 원시값이므로 변경할 수 없다. 이때 에러가 발생하지 않는다.</span></span><br><span class="line">strObj[<span class="number">0</span>] = <span class="string">&#x27;S&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj); <span class="comment">// &#x27;Lee&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-05"><a href="#32-05" class="headerlink" title="32-05"></a>32-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="number">123</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj);</span><br><span class="line"><span class="comment">// String &#123;0: &quot;1&quot;, 1: &quot;2&quot;, 2: &quot;3&quot;, length: 3, [[PrimitiveValue]]: &quot;123&quot;&#125;</span></span><br><span class="line"></span><br><span class="line">strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(strObj);</span><br><span class="line"><span class="comment">// String &#123;0: &quot;n&quot;, 1: &quot;u&quot;, 2: &quot;l&quot;, : &quot;l&quot;, length: 4, [[PrimitiveValue]]: &quot;null&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-06"><a href="#32-06" class="headerlink" title="32-06"></a>32-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 숫자 타입 =&gt; 문자열 타입</span></span><br><span class="line"><span class="title class_">String</span>(<span class="number">1</span>);        <span class="comment">// -&gt; &quot;1&quot;</span></span><br><span class="line"><span class="title class_">String</span>(<span class="title class_">NaN</span>);      <span class="comment">// -&gt; &quot;NaN&quot;</span></span><br><span class="line"><span class="title class_">String</span>(<span class="title class_">Infinity</span>); <span class="comment">// -&gt; &quot;Infinity&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 불리언 타입 =&gt; 문자열 타입</span></span><br><span class="line"><span class="title class_">String</span>(<span class="literal">true</span>);  <span class="comment">// -&gt; &quot;true&quot;</span></span><br><span class="line"><span class="title class_">String</span>(<span class="literal">false</span>); <span class="comment">// -&gt; &quot;false&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-07"><a href="#32-07" class="headerlink" title="32-07"></a>32-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;Hello&#x27;</span>.<span class="property">length</span>;    <span class="comment">// -&gt; 5</span></span><br><span class="line"><span class="string">&#x27;안녕하세요!&#x27;</span>.<span class="property">length</span>; <span class="comment">// -&gt; 6</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-08"><a href="#32-08" class="headerlink" title="32-08"></a>32-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> strObj = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;Lee&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptors</span>(strObj));</span><br><span class="line"><span class="comment">/* String 래퍼 객체는 읽기 전용 객체다. 즉, writable 프로퍼티 어트리뷰트 값이 false다.</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  &#x27;0&#x27;: &#123; value: &#x27;L&#x27;, writable: false, enumerable: true, configurable: false &#125;,</span></span><br><span class="line"><span class="comment">  &#x27;1&#x27;: &#123; value: &#x27;e&#x27;, writable: false, enumerable: true, configurable: false &#125;,</span></span><br><span class="line"><span class="comment">  &#x27;2&#x27;: &#123; value: &#x27;e&#x27;, writable: false, enumerable: true, configurable: false &#125;,</span></span><br><span class="line"><span class="comment">  length: &#123; value: 3, writable: false, enumerable: false, configurable: false &#125;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-09"><a href="#32-09" class="headerlink" title="32-09"></a>32-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str에서 &#x27;l&#x27;을 검색하여 첫 번째 인덱스를 반환한다.</span></span><br><span class="line">str.<span class="title function_">indexOf</span>(<span class="string">&#x27;l&#x27;</span>); <span class="comment">// -&gt; 2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str에서 &#x27;or&#x27;을 검색하여 첫 번째 인덱스를 반환한다.</span></span><br><span class="line">str.<span class="title function_">indexOf</span>(<span class="string">&#x27;or&#x27;</span>); <span class="comment">// -&gt; 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str에서 &#x27;x&#x27;를 검색하여 첫 번째 인덱스를 반환한다. 검색에 실패하면 -1을 반환한다.</span></span><br><span class="line">str.<span class="title function_">indexOf</span>(<span class="string">&#x27;x&#x27;</span>); <span class="comment">// -&gt; -1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-10"><a href="#32-10" class="headerlink" title="32-10"></a>32-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열 str의 인덱스 3부터 &#x27;l&#x27;을 검색하여 첫 번째 인덱스를 반환한다.</span></span><br><span class="line">str.<span class="title function_">indexOf</span>(<span class="string">&#x27;l&#x27;</span>, <span class="number">3</span>); <span class="comment">// -&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-11"><a href="#32-11" class="headerlink" title="32-11"></a>32-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (str.<span class="title function_">indexOf</span>(<span class="string">&#x27;Hello&#x27;</span>) !== -<span class="number">1</span>) &#123;</span><br><span class="line">  <span class="comment">// 문자열 str에 &#x27;Hello&#x27;가 포함되어 있는 경우에 처리할 내용</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="32-12"><a href="#32-12" class="headerlink" title="32-12"></a>32-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (str.<span class="title function_">includes</span>(<span class="string">&#x27;Hello&#x27;</span>)) &#123;</span><br><span class="line">  <span class="comment">// 문자열 str에 &#x27;Hello&#x27;가 포함되어 있는 경우에 처리할 내용</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="32-13"><a href="#32-13" class="headerlink" title="32-13"></a>32-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str에서 정규 표현식과 매치하는 문자열을 검색하여 일치하는 문자열의 인덱스를 반환한다.</span></span><br><span class="line">str.<span class="title function_">search</span>(<span class="regexp">/o/</span>); <span class="comment">// -&gt; 4</span></span><br><span class="line">str.<span class="title function_">search</span>(<span class="regexp">/x/</span>); <span class="comment">// -&gt; -1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-14"><a href="#32-14" class="headerlink" title="32-14"></a>32-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">includes</span>(<span class="string">&#x27;Hello&#x27;</span>); <span class="comment">// -&gt; true</span></span><br><span class="line">str.<span class="title function_">includes</span>(<span class="string">&#x27;&#x27;</span>);      <span class="comment">// -&gt; true</span></span><br><span class="line">str.<span class="title function_">includes</span>(<span class="string">&#x27;x&#x27;</span>);     <span class="comment">// -&gt; false</span></span><br><span class="line">str.<span class="title function_">includes</span>();        <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-15"><a href="#32-15" class="headerlink" title="32-15"></a>32-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str의 인덱스 3부터 &#x27;l&#x27;이 포함되어 있는지 확인</span></span><br><span class="line">str.<span class="title function_">includes</span>(<span class="string">&#x27;l&#x27;</span>, <span class="number">3</span>); <span class="comment">// -&gt; true</span></span><br><span class="line">str.<span class="title function_">includes</span>(<span class="string">&#x27;H&#x27;</span>, <span class="number">3</span>); <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-16"><a href="#32-16" class="headerlink" title="32-16"></a>32-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str이 &#x27;He&#x27;로 시작하는지 확인</span></span><br><span class="line">str.<span class="title function_">startsWith</span>(<span class="string">&#x27;He&#x27;</span>); <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="comment">// 문자열 str이 &#x27;x&#x27;로 시작하는지 확인</span></span><br><span class="line">str.<span class="title function_">startsWith</span>(<span class="string">&#x27;x&#x27;</span>); <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-17"><a href="#32-17" class="headerlink" title="32-17"></a>32-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열 str의 인덱스 5부터 시작하는 문자열이 &#x27; &#x27;로 시작하는지 확인</span></span><br><span class="line">str.<span class="title function_">startsWith</span>(<span class="string">&#x27; &#x27;</span>, <span class="number">5</span>); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-18"><a href="#32-18" class="headerlink" title="32-18"></a>32-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 문자열 str이 &#x27;ld&#x27;로 끝나는지 확인</span></span><br><span class="line">str.<span class="title function_">endsWith</span>(<span class="string">&#x27;ld&#x27;</span>); <span class="comment">// -&gt; true</span></span><br><span class="line"><span class="comment">// 문자열 str이 &#x27;x&#x27;로 끝나는지 확인</span></span><br><span class="line">str.<span class="title function_">endsWith</span>(<span class="string">&#x27;x&#x27;</span>); <span class="comment">// -&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-19"><a href="#32-19" class="headerlink" title="32-19"></a>32-19</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열 str의 처음부터 5자리까지(&#x27;Hello&#x27;)가 &#x27;lo&#x27;로 끝나는지 확인</span></span><br><span class="line">str.<span class="title function_">endsWith</span>(<span class="string">&#x27;lo&#x27;</span>, <span class="number">5</span>); <span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-20"><a href="#32-20" class="headerlink" title="32-20"></a>32-20</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(str.<span class="title function_">charAt</span>(i)); <span class="comment">// H e l l o</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="32-21"><a href="#32-21" class="headerlink" title="32-21"></a>32-21</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 인덱스가 문자열의 범위(0 ~ str.length-1)를 벗어난 경우 빈문자열을 반환한다.</span></span><br><span class="line">str.<span class="title function_">charAt</span>(<span class="number">5</span>); <span class="comment">// -&gt; &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-22"><a href="#32-22" class="headerlink" title="32-22"></a>32-22</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인덱스 1부터 인덱스 4 이전까지의 부분 문자열을 반환한다.</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">1</span>, <span class="number">4</span>); <span class="comment">// -&gt; ell</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-23"><a href="#32-23" class="headerlink" title="32-23"></a>32-23</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인덱스 1부터 마지막 문자까지 부분 문자열을 반환한다.</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">1</span>); <span class="comment">// -&gt; &#x27;ello World&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-24"><a href="#32-24" class="headerlink" title="32-24"></a>32-24</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World&#x27;</span>; <span class="comment">// str.length == 11</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 첫 번째 인수 &gt; 두 번째 인수인 경우 두 인수는 교환된다.</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">4</span>, <span class="number">1</span>); <span class="comment">// -&gt; &#x27;ell&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수 &lt; 0 또는 NaN인 경우 0으로 취급된다.</span></span><br><span class="line">str.<span class="title function_">substring</span>(-<span class="number">2</span>); <span class="comment">// -&gt; &#x27;Hello World&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수 &gt; 문자열의 길이(str.length)인 경우 인수는 문자열의 길이(str.length)으로 취급된다.</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">1</span>, <span class="number">100</span>); <span class="comment">// -&gt; &#x27;ello World&#x27;</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">20</span>); <span class="comment">// -&gt; &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-25"><a href="#32-25" class="headerlink" title="32-25"></a>32-25</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 스페이스를 기준으로 앞에 있는 부분 문자열 취득</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">0</span>, str.<span class="title function_">indexOf</span>(<span class="string">&#x27; &#x27;</span>)); <span class="comment">// -&gt; &#x27;Hello&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 스페이스를 기준으로 뒤에 있는 부분 문자열 취득</span></span><br><span class="line">str.<span class="title function_">substring</span>(str.<span class="title function_">indexOf</span>(<span class="string">&#x27; &#x27;</span>) + <span class="number">1</span>, str.<span class="property">length</span>); <span class="comment">// -&gt; &#x27;World&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-26"><a href="#32-26" class="headerlink" title="32-26"></a>32-26</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// substring과 slice 메서드는 동일하게 동작한다.</span></span><br><span class="line"><span class="comment">// 0번째부터 5번째 이전 문자까지 잘라내어 반환</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">0</span>, <span class="number">5</span>); <span class="comment">// -&gt; &#x27;hello&#x27;</span></span><br><span class="line">str.<span class="title function_">slice</span>(<span class="number">0</span>, <span class="number">5</span>); <span class="comment">// -&gt; &#x27;hello&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인덱스가 2인 문자부터 마지막 문자까지 잘라내어 반환</span></span><br><span class="line">str.<span class="title function_">substring</span>(<span class="number">2</span>); <span class="comment">// -&gt; &#x27;llo world&#x27;</span></span><br><span class="line">str.<span class="title function_">slice</span>(<span class="number">2</span>); <span class="comment">// -&gt; &#x27;llo world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수 &lt; 0 또는 NaN인 경우 0으로 취급된다.</span></span><br><span class="line">str.<span class="title function_">substring</span>(-<span class="number">5</span>); <span class="comment">// -&gt; &#x27;hello world&#x27;</span></span><br><span class="line"><span class="comment">// slice 메서드는 음수인 인수를 전달할 수 있다. 뒤에서 5자리를 잘라내어 반환한다.</span></span><br><span class="line">str.<span class="title function_">slice</span>(-<span class="number">5</span>); <span class="comment">// ⟶ &#x27;world&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-27"><a href="#32-27" class="headerlink" title="32-27"></a>32-27</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World!&#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">toUpperCase</span>(); <span class="comment">// -&gt; &#x27;HELLO WORLD!&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-28"><a href="#32-28" class="headerlink" title="32-28"></a>32-28</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello World!&#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">toLowerCase</span>(); <span class="comment">// -&gt; &#x27;hello world!&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-29"><a href="#32-29" class="headerlink" title="32-29"></a>32-29</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;   foo  &#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">trim</span>(); <span class="comment">// -&gt; &#x27;foo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-30"><a href="#32-30" class="headerlink" title="32-30"></a>32-30</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;   foo  &#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// String.prototype.&#123;trimStart,trimEnd&#125; : Proposal stage 4</span></span><br><span class="line">str.<span class="title function_">trimStart</span>(); <span class="comment">// -&gt; &#x27;foo  &#x27;</span></span><br><span class="line">str.<span class="title function_">trimEnd</span>();   <span class="comment">// -&gt; &#x27;   foo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-31"><a href="#32-31" class="headerlink" title="32-31"></a>32-31</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;   foo  &#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 첫 번째 인수로 전달한 정규 표현식에 매치하는 문자열을 두 번째 인수로 전달한 문자열로 치환한다.</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/\s/g</span>, <span class="string">&#x27;&#x27;</span>);   <span class="comment">// -&gt; &#x27;foo&#x27;</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/^\s+/g</span>, <span class="string">&#x27;&#x27;</span>); <span class="comment">// -&gt; &#x27;foo  &#x27;</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/\s+$/g</span>, <span class="string">&#x27;&#x27;</span>); <span class="comment">// -&gt; &#x27;   foo&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-32"><a href="#32-32" class="headerlink" title="32-32"></a>32-32</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;abc&#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">repeat</span>();    <span class="comment">// -&gt; &#x27;&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">0</span>);   <span class="comment">// -&gt; &#x27;&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">1</span>);   <span class="comment">// -&gt; &#x27;abc&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">2</span>);   <span class="comment">// -&gt; &#x27;abcabc&#x27;</span></span><br><span class="line">str.<span class="title function_">repeat</span>(<span class="number">2.5</span>); <span class="comment">// -&gt; &#x27;abcabc&#x27; (2.5 → 2)</span></span><br><span class="line">str.<span class="title function_">repeat</span>(-<span class="number">1</span>);  <span class="comment">// -&gt; RangeError: Invalid count value</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-33"><a href="#32-33" class="headerlink" title="32-33"></a>32-33</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// str에서 첫 번째 인수 &#x27;world&#x27;를 검색하여 두 번째 인수 &#x27;Lee&#x27;로 치환한다.</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="string">&#x27;world&#x27;</span>, <span class="string">&#x27;Lee&#x27;</span>); <span class="comment">// -&gt; &#x27;Hello Lee&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-34"><a href="#32-34" class="headerlink" title="32-34"></a>32-34</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world world&#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="string">&#x27;world&#x27;</span>, <span class="string">&#x27;Lee&#x27;</span>); <span class="comment">// -&gt; &#x27;Hello Lee world&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-35"><a href="#32-35" class="headerlink" title="32-35"></a>32-35</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello world&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 특수한 교체 패턴을 사용할 수 있다. ($&amp; =&gt; 검색된 문자열)</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="string">&#x27;world&#x27;</span>, <span class="string">&#x27;&lt;strong&gt;$&amp;&lt;/strong&gt;&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="32-36"><a href="#32-36" class="headerlink" title="32-36"></a>32-36</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello Hello&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x27;hello&#x27;를 대소문자를 구별하지 않고 전역 검색한다.</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/hello/gi</span>, <span class="string">&#x27;Lee&#x27;</span>); <span class="comment">// -&gt; &#x27;Lee Lee&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-37"><a href="#32-37" class="headerlink" title="32-37"></a>32-37</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 카멜 케이스를 스네이크 케이스로 변환하는 함수</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">camelToSnake</span>(<span class="params">camelCase</span>) &#123;</span><br><span class="line">  <span class="comment">// /.[A-Z]/g는 임의의 한 문자와 대문자로 이루어진 문자열에 매치한다.</span></span><br><span class="line">  <span class="comment">// 치환 함수의 인수로 매치 결과가 전달되고, 치환 함수가 반환한 결과와 매치 결과를 치환한다.</span></span><br><span class="line">  <span class="keyword">return</span> camelCase.<span class="title function_">replace</span>(<span class="regexp">/.[A-Z]/g</span>, <span class="function"><span class="params">match</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(match); <span class="comment">// &#x27;oW&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> match[<span class="number">0</span>] + <span class="string">&#x27;_&#x27;</span> + match[<span class="number">1</span>].<span class="title function_">toLowerCase</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> camelCase = <span class="string">&#x27;helloWorld&#x27;</span>;</span><br><span class="line"><span class="title function_">camelToSnake</span>(camelCase); <span class="comment">// -&gt; &#x27;hello_world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 스네이크 케이스를 카멜 케이스로 변환하는 함수</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">snakeToCamel</span>(<span class="params">snakeCase</span>) &#123;</span><br><span class="line">  <span class="comment">// /_[a-z]/g는 _와 소문자로 이루어진 문자열에 매치한다.</span></span><br><span class="line">  <span class="comment">// 치환 함수의 인수로 매치 결과가 전달되고, 치환 함수가 반환한 결과와 매치 결과를 치환한다.</span></span><br><span class="line">  <span class="keyword">return</span> snakeCase.<span class="title function_">replace</span>(<span class="regexp">/_[a-z]]/g</span>, <span class="function"><span class="params">match</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(match); <span class="comment">// &#x27;_w&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> match[<span class="number">1</span>].<span class="title function_">toUpperCase</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> snakeCase = <span class="string">&#x27;hello_world&#x27;</span>;</span><br><span class="line"><span class="title function_">snakeToCamel</span>(snakeCase); <span class="comment">// -&gt; &#x27;helloWorld&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-38"><a href="#32-38" class="headerlink" title="32-38"></a>32-38</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;How are you doing?&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 공백으로 구분(단어로 구분)하여 배열로 반환한다.</span></span><br><span class="line">str.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>); <span class="comment">// -&gt; [&quot;How&quot;, &quot;are&quot;, &quot;you&quot;, &quot;doing?&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// \s는 여러 가지 공백 문자(스페이스, 탭 등)를 의미한다. 즉, [\t\r\n\v\f]와 같은 의미다.</span></span><br><span class="line">str.<span class="title function_">split</span>(<span class="regexp">/\s/</span>); <span class="comment">// -&gt; [&quot;How&quot;, &quot;are&quot;, &quot;you&quot;, &quot;doing?&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수로 빈 문자열을 전달하면 각 문자를 모두 분리한다.</span></span><br><span class="line">str.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>); <span class="comment">// -&gt; [&quot;H&quot;, &quot;o&quot;, &quot;w&quot;, &quot; &quot;, &quot;a&quot;, &quot;r&quot;, &quot;e&quot;, &quot; &quot;, &quot;y&quot;, &quot;o&quot;, &quot;u&quot;, &quot; &quot;, &quot;d&quot;, &quot;o&quot;, &quot;i&quot;, &quot;n&quot;, &quot;g&quot;, &quot;?&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수를 생략하면 대상 문자열 전체를 단일 요소로 하는 배열을 반환한다.</span></span><br><span class="line">str.<span class="title function_">split</span>(); <span class="comment">// -&gt; [&quot;How are you doing?&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-39"><a href="#32-39" class="headerlink" title="32-39"></a>32-39</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 공백으로 구분하여 배열로 반환한다. 단, 배열의 길이는 3이다</span></span><br><span class="line">str.<span class="title function_">split</span>(<span class="string">&#x27; &#x27;</span>, <span class="number">3</span>); <span class="comment">// -&gt; [&quot;How&quot;, &quot;are&quot;, &quot;you&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="32-40"><a href="#32-40" class="headerlink" title="32-40"></a>32-40</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 인수로 전달받은 문자열을 역순으로 뒤집는다.</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">reverseString</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">reverse</span>().<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">reverseString</span>(<span class="string">&#x27;Hello world!&#x27;</span>); <span class="comment">// -&gt; &#x27;!dlrow olleH&#x27;</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>32</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

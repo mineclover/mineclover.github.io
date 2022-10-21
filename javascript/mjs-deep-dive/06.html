@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="06-011234&#x2F;&#x2F; 모두 숫자 타입이다.var integer &#x3D; 10;    &#x2F;&#x2F; 정수var double &#x3D; 10.12;  &#x2F;&#x2F; 실수var negative &#x3D; -20;  &#x2F;&#x2F; 음의 정수  06-0212345678910var binary &#x3D; 0b01000001; &#x2F;&#x2F; 2진수var octal &#x3D; 0o101;       &#x2F;&#x2F; 8진수var hex &#x3D; 0x41;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/06.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="06-011234&#x2F;&#x2F; 모두 숫자 타입이다.var integer &#x3D; 10;    &#x2F;&#x2F; 정수var double &#x3D; 10.12;  &#x2F;&#x2F; 실수var negative &#x3D; -20;  &#x2F;&#x2F; 음의 정수  06-0212345678910var binary &#x3D; 0b01000001; &#x2F;&#x2F; 2진수var octal &#x3D; 0o101;       &#x2F;&#x2F; 8진수var hex &#x3D; 0x41;">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.240Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/06">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/06.html","path":"javascript/mjs-deep-dive/06.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#06-01"><span class="nav-number">1.</span> <span class="nav-text">06-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-02"><span class="nav-number">2.</span> <span class="nav-text">06-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-03"><span class="nav-number">3.</span> <span class="nav-text">06-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-04"><span class="nav-number">4.</span> <span class="nav-text">06-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-05"><span class="nav-number">5.</span> <span class="nav-text">06-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-06"><span class="nav-number">6.</span> <span class="nav-text">06-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-07"><span class="nav-number">7.</span> <span class="nav-text">06-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-08"><span class="nav-number">8.</span> <span class="nav-text">06-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-09"><span class="nav-number">9.</span> <span class="nav-text">06-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-10"><span class="nav-number">10.</span> <span class="nav-text">06-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-11"><span class="nav-number">11.</span> <span class="nav-text">06-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-12"><span class="nav-number">12.</span> <span class="nav-text">06-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-13"><span class="nav-number">13.</span> <span class="nav-text">06-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-14"><span class="nav-number">14.</span> <span class="nav-text">06-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-15"><span class="nav-number">15.</span> <span class="nav-text">06-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-16"><span class="nav-number">16.</span> <span class="nav-text">06-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-17"><span class="nav-number">17.</span> <span class="nav-text">06-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-18"><span class="nav-number">18.</span> <span class="nav-text">06-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-19"><span class="nav-number">19.</span> <span class="nav-text">06-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-20"><span class="nav-number">20.</span> <span class="nav-text">06-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-21"><span class="nav-number">21.</span> <span class="nav-text">06-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-22"><span class="nav-number">22.</span> <span class="nav-text">06-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-23"><span class="nav-number">23.</span> <span class="nav-text">06-23</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>06</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="06-01"><a href="#06-01" class="headerlink" title="06-01"></a>06-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 모두 숫자 타입이다.</span></span><br><span class="line"><span class="keyword">var</span> integer = <span class="number">10</span>;    <span class="comment">// 정수</span></span><br><span class="line"><span class="keyword">var</span> double = <span class="number">10.12</span>;  <span class="comment">// 실수</span></span><br><span class="line"><span class="keyword">var</span> negative = -<span class="number">20</span>;  <span class="comment">// 음의 정수</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-02"><a href="#06-02" class="headerlink" title="06-02"></a>06-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> binary = <span class="number">0b01000001</span>; <span class="comment">// 2진수</span></span><br><span class="line"><span class="keyword">var</span> octal = <span class="number">0o101</span>;       <span class="comment">// 8진수</span></span><br><span class="line"><span class="keyword">var</span> hex = <span class="number">0x41</span>;          <span class="comment">// 16진수</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 표기법만 다를 뿐 모두 같은 값이다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(binary); <span class="comment">// 65</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(octal);  <span class="comment">// 65</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(hex);    <span class="comment">// 65</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(binary === octal); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(octal === hex);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-03"><a href="#06-03" class="headerlink" title="06-03"></a>06-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 숫자 타입은 모두 실수로 처리된다.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> === <span class="number">1.0</span>); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span> / <span class="number">2</span>);     <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span> / <span class="number">2</span>);     <span class="comment">// 1.5</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-04"><a href="#06-04" class="headerlink" title="06-04"></a>06-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 숫자 타입의 세 가지 특별한 값</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span> / <span class="number">0</span>);       <span class="comment">// Infinity</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span> / -<span class="number">0</span>);      <span class="comment">// -Infinity</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> * <span class="string">&#x27;String&#x27;</span>); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-05"><a href="#06-05" class="headerlink" title="06-05"></a>06-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 자바스크립트는 대소문자를 구별한다.</span></span><br><span class="line"><span class="keyword">var</span> x = nan; <span class="comment">// ReferenceError: nan is not defined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-06"><a href="#06-06" class="headerlink" title="06-06"></a>06-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열 타입</span></span><br><span class="line"><span class="keyword">var</span> string;</span><br><span class="line">string = <span class="string">&#x27;문자열&#x27;</span>; <span class="comment">// 작은따옴표</span></span><br><span class="line">string = <span class="string">&quot;문자열&quot;</span>; <span class="comment">// 큰따옴표</span></span><br><span class="line">string = <span class="string">`문자열`</span>; <span class="comment">// 백틱 (ES6)</span></span><br><span class="line"></span><br><span class="line">string = <span class="string">&#x27;작은따옴표로 감싼 문자열 내의 &quot;큰따옴표&quot;는 문자열로 인식된다.&#x27;</span>;</span><br><span class="line">string = <span class="string">&quot;큰따옴표로 감싼 문자열 내의 &#x27;작은따옴표&#x27;는 문자열로 인식된다.&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="06-07"><a href="#06-07" class="headerlink" title="06-07"></a>06-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 따옴표로 감싸지 않은 hello를 식별자로 인식한다.</span></span><br><span class="line"><span class="keyword">var</span> string = hello; <span class="comment">// ReferenceError: hello is not defined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-08"><a href="#06-08" class="headerlink" title="06-08"></a>06-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> template = <span class="string">`Template literal`</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(template); <span class="comment">// Template literal</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-09"><a href="#06-09" class="headerlink" title="06-09"></a>06-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;Hello</span></span><br><span class="line"><span class="string">world.&#x27;</span>;</span><br><span class="line"><span class="comment">// SyntaxError: Invalid or unexpected token</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-10"><a href="#06-10" class="headerlink" title="06-10"></a>06-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> template = <span class="string">&#x27;&lt;ul&gt;\n\t&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(template);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;ul&gt;</span></span><br><span class="line"><span class="comment">  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;/ul&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-11"><a href="#06-11" class="headerlink" title="06-11"></a>06-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> template = <span class="string">`&lt;ul&gt;</span></span><br><span class="line"><span class="string">  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">&lt;/ul&gt;`</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(template);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;ul&gt;</span></span><br><span class="line"><span class="comment">  &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;/ul&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-12"><a href="#06-12" class="headerlink" title="06-12"></a>06-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first = <span class="string">&#x27;Ung-mo&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> last = <span class="string">&#x27;Lee&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5: 문자열 연결</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;My name is &#x27;</span> + first + <span class="string">&#x27; &#x27;</span> + last + <span class="string">&#x27;.&#x27;</span>); <span class="comment">// My name is Ung-mo Lee.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-13"><a href="#06-13" class="headerlink" title="06-13"></a>06-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first = <span class="string">&#x27;Ung-mo&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> last = <span class="string">&#x27;Lee&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6: 표현식 삽입</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`My name is <span class="subst">$&#123;first&#125;</span> <span class="subst">$&#123;last&#125;</span>.`</span>); <span class="comment">// My name is Ung-mo Lee.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-14"><a href="#06-14" class="headerlink" title="06-14"></a>06-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`1 + 2 = <span class="subst">$&#123;<span class="number">1</span> + <span class="number">2</span>&#125;</span>`</span>); <span class="comment">// 1 + 2 = 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-15"><a href="#06-15" class="headerlink" title="06-15"></a>06-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1 + 2 = $&#123;1 + 2&#125;&#x27;</span>); <span class="comment">// 1 + 2 = $&#123;1 + 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-16"><a href="#06-16" class="headerlink" title="06-16"></a>06-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">foo = <span class="literal">false</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-17"><a href="#06-17" class="headerlink" title="06-17"></a>06-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-18"><a href="#06-18" class="headerlink" title="06-18"></a>06-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="string">&#x27;Lee&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이전에 할당되어 있던 값에 대한 참조를 제거. foo 변수는 더 이상 &#x27;Lee&#x27;를 참조하지 않는다.</span></span><br><span class="line"><span class="comment">// 유용해 보이지는 않는다. 변수의 스코프를 좁게 만들어 변수 자체를 재빨리 소멸시키는 편이 낫다.</span></span><br><span class="line">foo = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="06-19"><a href="#06-19" class="headerlink" title="06-19"></a>06-19</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> element = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.myClass&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// HTML 문서에 myClass 클래스를 갖는 요소가 없다면 null을 반환한다.</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(element); <span class="comment">// null</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-20"><a href="#06-20" class="headerlink" title="06-20"></a>06-20</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 심벌 값 생성</span></span><br><span class="line"><span class="keyword">var</span> key = <span class="title class_">Symbol</span>(<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> key); <span class="comment">// symbol</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 생성</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이름이 충돌할 위험이 없는 유일무이한 값인 심벌을 프로퍼티 키로 사용한다.</span></span><br><span class="line">obj[key] = <span class="string">&#x27;value&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[key]); <span class="comment">// value</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="06-21"><a href="#06-21" class="headerlink" title="06-21"></a>06-21</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> score = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="06-22"><a href="#06-22" class="headerlink" title="06-22"></a>06-22</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// c 변수에는 1바이트 정수 타입의 값(-128 ~ 127)만을 할당할 수 있다.</span></span><br><span class="line"><span class="type">char</span> c;</span><br><span class="line"></span><br><span class="line"><span class="comment">// num 변수에는 4바이트 정수 타입의 값(-2,124,483,648 ~ 2,124,483,647)만을 할당할 수 있다.</span></span><br><span class="line"><span class="type">int</span> num;</span><br></pre></td></tr></table></figure>
+
+<h1 id="06-23"><a href="#06-23" class="headerlink" title="06-23"></a>06-23</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">foo = <span class="number">3</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// number</span></span><br><span class="line"></span><br><span class="line">foo = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line">foo = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// boolean</span></span><br><span class="line"></span><br><span class="line">foo = <span class="literal">null</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line">foo = <span class="title class_">Symbol</span>(); <span class="comment">// 심벌</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// symbol</span></span><br><span class="line"></span><br><span class="line">foo = &#123;&#125;; <span class="comment">// 객체</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line">foo = []; <span class="comment">// 배열</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line">foo = <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;; <span class="comment">// 함수</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> foo);  <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>06</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

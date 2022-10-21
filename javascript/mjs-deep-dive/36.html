@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="36-0112345678&#x2F;&#x2F; ES5var arr &#x3D; [1, 2, 3];var one   &#x3D; arr[0];var two   &#x3D; arr[1];var three &#x3D; arr[2];console.log(one, two, three); &#x2F;&#x2F; 1 2 3  36-0212345678const arr &#x3D; [1, 2, 3];&#x2F;&#x2F; ES6 배열 디스트럭처링 할당&#x2F;&#x2F; 변수 one,">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/36.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="36-0112345678&#x2F;&#x2F; ES5var arr &#x3D; [1, 2, 3];var one   &#x3D; arr[0];var two   &#x3D; arr[1];var three &#x3D; arr[2];console.log(one, two, three); &#x2F;&#x2F; 1 2 3  36-0212345678const arr &#x3D; [1, 2, 3];&#x2F;&#x2F; ES6 배열 디스트럭처링 할당&#x2F;&#x2F; 변수 one,">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.716Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/36">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/36.html","path":"javascript/mjs-deep-dive/36.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#36-01"><span class="nav-number">1.</span> <span class="nav-text">36-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-02"><span class="nav-number">2.</span> <span class="nav-text">36-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-03"><span class="nav-number">3.</span> <span class="nav-text">36-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-04"><span class="nav-number">4.</span> <span class="nav-text">36-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-05"><span class="nav-number">5.</span> <span class="nav-text">36-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-06"><span class="nav-number">6.</span> <span class="nav-text">36-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-07"><span class="nav-number">7.</span> <span class="nav-text">36-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-08"><span class="nav-number">8.</span> <span class="nav-text">36-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-09"><span class="nav-number">9.</span> <span class="nav-text">36-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-10"><span class="nav-number">10.</span> <span class="nav-text">36-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-11"><span class="nav-number">11.</span> <span class="nav-text">36-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-12"><span class="nav-number">12.</span> <span class="nav-text">36-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-13"><span class="nav-number">13.</span> <span class="nav-text">36-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-14"><span class="nav-number">14.</span> <span class="nav-text">36-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-15"><span class="nav-number">15.</span> <span class="nav-text">36-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-16"><span class="nav-number">16.</span> <span class="nav-text">36-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-17"><span class="nav-number">17.</span> <span class="nav-text">36-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-18"><span class="nav-number">18.</span> <span class="nav-text">36-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-19"><span class="nav-number">19.</span> <span class="nav-text">36-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-20"><span class="nav-number">20.</span> <span class="nav-text">36-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-21"><span class="nav-number">21.</span> <span class="nav-text">36-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36-22"><span class="nav-number">22.</span> <span class="nav-text">36-22</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>36</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="36-01"><a href="#36-01" class="headerlink" title="36-01"></a>36-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> one   = arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> two   = arr[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">var</span> three = arr[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(one, two, three); <span class="comment">// 1 2 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-02"><a href="#36-02" class="headerlink" title="36-02"></a>36-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 배열 디스트럭처링 할당</span></span><br><span class="line"><span class="comment">// 변수 one, two, three를 선언하고 배열 arr을 디스트럭처링하여 할당한다.</span></span><br><span class="line"><span class="comment">// 이때 할당 기준은 배열의 인덱스다.</span></span><br><span class="line"><span class="keyword">const</span> [one, two, three] = arr;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(one, two, three); <span class="comment">// 1 2 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-03"><a href="#36-03" class="headerlink" title="36-03"></a>36-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [x, y] = [<span class="number">1</span>, <span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+
+<h1 id="36-04"><a href="#36-04" class="headerlink" title="36-04"></a>36-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [x, y]; <span class="comment">// SyntaxError: Missing initializer in destructuring declaration</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [a, b] = &#123;&#125;; <span class="comment">// TypeError: &#123;&#125; is not iterable</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-05"><a href="#36-05" class="headerlink" title="36-05"></a>36-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x, y;</span><br><span class="line">[x, y] = [<span class="number">1</span>, <span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+
+<h1 id="36-06"><a href="#36-06" class="headerlink" title="36-06"></a>36-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b); <span class="comment">// 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [c, d] = [<span class="number">1</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c, d); <span class="comment">// 1 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [e, f] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e, f); <span class="comment">// 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> [g, , h] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(g, h); <span class="comment">// 1 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-07"><a href="#36-07" class="headerlink" title="36-07"></a>36-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 기본값</span></span><br><span class="line"><span class="keyword">const</span> [a, b, c = <span class="number">3</span>] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, c); <span class="comment">// 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 기본값보다 할당된 값이 우선한다.</span></span><br><span class="line"><span class="keyword">const</span> [e, f = <span class="number">10</span>, g = <span class="number">3</span>] = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e, f, g); <span class="comment">// 1 2 3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-08"><a href="#36-08" class="headerlink" title="36-08"></a>36-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// url을 파싱하여 protocol, host, path 프로퍼티를 갖는 객체를 생성해 반환한다.</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">parseURL</span>(<span class="params">url = <span class="string">&#x27;&#x27;</span></span>) &#123;</span><br><span class="line">  <span class="comment">// &#x27;://&#x27; 앞의 문자열(protocol)과 &#x27;/&#x27; 이전의 &#x27;/&#x27;으로 시작하지 않는 문자열(host)과 &#x27;/&#x27; 이후의 문자열(path)을 검색한다.</span></span><br><span class="line">  <span class="keyword">const</span> parsedURL = url.<span class="title function_">match</span>(<span class="regexp">/^(\w+):\/\/([^/]+)\/(.*)$/</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(parsedURL);</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  [</span></span><br><span class="line"><span class="comment">    &#x27;https://developer.mozilla.org/ko/docs/Web/JavaScript&#x27;,</span></span><br><span class="line"><span class="comment">    &#x27;https&#x27;,</span></span><br><span class="line"><span class="comment">    &#x27;developer.mozilla.org&#x27;,</span></span><br><span class="line"><span class="comment">    &#x27;ko/docs/Web/JavaScript&#x27;,</span></span><br><span class="line"><span class="comment">    index: 0,</span></span><br><span class="line"><span class="comment">    input: &#x27;https://developer.mozilla.org/ko/docs/Web/JavaScript&#x27;,</span></span><br><span class="line"><span class="comment">    groups: undefined</span></span><br><span class="line"><span class="comment">  ]</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!parsedURL) <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 배열 디스트럭처링 할당을 사용하여 이터러블에서 필요한 요소만 추출한다.</span></span><br><span class="line">  <span class="keyword">const</span> [, protocol, host, path] = parsedURL;</span><br><span class="line">  <span class="keyword">return</span> &#123; protocol, host, path &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> parsedURL = <span class="title function_">parseURL</span>(<span class="string">&#x27;https://developer.mozilla.org/ko/docs/Web/JavaScript&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(parsedURL);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  protocol: &#x27;https&#x27;,</span></span><br><span class="line"><span class="comment">  host: &#x27;developer.mozilla.org&#x27;,</span></span><br><span class="line"><span class="comment">  path: &#x27;ko/docs/Web/JavaScript&#x27;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-09"><a href="#36-09" class="headerlink" title="36-09"></a>36-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rest 요소</span></span><br><span class="line"><span class="keyword">const</span> [x, ...y] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x, y); <span class="comment">// 1 [ 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-10"><a href="#36-10" class="headerlink" title="36-10"></a>36-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> user = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> firstName = user.<span class="property">firstName</span>;</span><br><span class="line"><span class="keyword">var</span> lastName  = user.<span class="property">lastName</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstName, lastName); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-11"><a href="#36-11" class="headerlink" title="36-11"></a>36-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 객체 디스트럭처링 할당</span></span><br><span class="line"><span class="comment">// 변수 lastName, firstName을 선언하고 user 객체를 디스트럭처링하여 할당한다.</span></span><br><span class="line"><span class="comment">// 이때 프로퍼티 키를 기준으로 디스트럭처링 할당이 이루어진다. 순서는 의미가 없다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = user;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstName, lastName); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-12"><a href="#36-12" class="headerlink" title="36-12"></a>36-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="36-13"><a href="#36-13" class="headerlink" title="36-13"></a>36-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125;;</span><br><span class="line"><span class="comment">// SyntaxError: Missing initializer in destructuring declaration</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = <span class="literal">null</span>;</span><br><span class="line"><span class="comment">// TypeError: Cannot destructure property &#x27;lastName&#x27; of &#x27;null&#x27; as it is null.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-14"><a href="#36-14" class="headerlink" title="36-14"></a>36-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; lastName, firstName &#125; = user;</span><br><span class="line"><span class="comment">// 위와 아래는 동치다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">lastName</span>: lastName, <span class="attr">firstName</span>: firstName &#125; = user;</span><br></pre></td></tr></table></figure>
+
+<h1 id="36-15"><a href="#36-15" class="headerlink" title="36-15"></a>36-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123; <span class="attr">firstName</span>: <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 키를 기준으로 디스트럭처링 할당이 이루어진다.</span></span><br><span class="line"><span class="comment">// 프로퍼티 키가 lastName인 프로퍼티 값을 ln에 할당하고,</span></span><br><span class="line"><span class="comment">// 프로퍼티 키가 firstName인 프로퍼티 값을 fn에 할당한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">lastName</span>: ln, <span class="attr">firstName</span>: fn &#125; = user;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fn, ln); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-16"><a href="#36-16" class="headerlink" title="36-16"></a>36-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; firstName = <span class="string">&#x27;Ungmo&#x27;</span>, lastName &#125; = &#123; <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(firstName, lastName); <span class="comment">// Ungmo Lee</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">firstName</span>: fn = <span class="string">&#x27;Ungmo&#x27;</span>, <span class="attr">lastName</span>: ln &#125; = &#123; <span class="attr">lastName</span>: <span class="string">&#x27;Lee&#x27;</span> &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fn, ln); <span class="comment">// Ungmo Lee</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-17"><a href="#36-17" class="headerlink" title="36-17"></a>36-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="comment">// String 래퍼 객체로부터 length 프로퍼티만 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; length &#125; = str;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(length); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todo = &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;;</span><br><span class="line"><span class="comment">// todo 객체로부터 id 프로퍼티만 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; id &#125; = todo;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(id); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-18"><a href="#36-18" class="headerlink" title="36-18"></a>36-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">printTodo</span>(<span class="params">todo</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`할일 <span class="subst">$&#123;todo.content&#125;</span>은 <span class="subst">$&#123;todo.completed ? <span class="string">&#x27;완료&#x27;</span> : <span class="string">&#x27;비완료&#x27;</span>&#125;</span> 상태입니다.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">printTodo</span>(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="comment">// 할일 HTML은 완료 상태입니다.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-19"><a href="#36-19" class="headerlink" title="36-19"></a>36-19</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">printTodo</span>(<span class="params">&#123; content, completed &#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`할일 <span class="subst">$&#123;content&#125;</span>은 <span class="subst">$&#123;completed ? <span class="string">&#x27;완료&#x27;</span> : <span class="string">&#x27;비완료&#x27;</span>&#125;</span> 상태입니다.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">printTodo</span>(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"><span class="comment">// 할일 HTML은 완료 상태입니다.</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-20"><a href="#36-20" class="headerlink" title="36-20"></a>36-20</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todos = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">&#x27;HTML&#x27;</span>, <span class="attr">completed</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">content</span>: <span class="string">&#x27;CSS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">&#x27;JS&#x27;</span>, <span class="attr">completed</span>: <span class="literal">false</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// todos 배열의 두 번째 요소인 객체로부터 id 프로퍼티만 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> [, &#123; id &#125;] = todos;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(id); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-21"><a href="#36-21" class="headerlink" title="36-21"></a>36-21</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="attr">address</span>: &#123;</span><br><span class="line">    <span class="attr">zipCode</span>: <span class="string">&#x27;03068&#x27;</span>,</span><br><span class="line">    <span class="attr">city</span>: <span class="string">&#x27;Seoul&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// address 프로퍼티 키로 객체를 추출하고 이 객체의 city 프로퍼티 키로 값을 추출한다.</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">address</span>: &#123; city &#125; &#125; = user;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(city); <span class="comment">// &#x27;Seoul&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="36-22"><a href="#36-22" class="headerlink" title="36-22"></a>36-22</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Rest 프로퍼티</span></span><br><span class="line"><span class="keyword">const</span> &#123; x, ...rest &#125; = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x, rest); <span class="comment">// 1 &#123; y: 2, z: 3 &#125;</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>36</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

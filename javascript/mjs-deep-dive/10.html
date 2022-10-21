@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mineclover.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="10-01123456789var person &#x3D; &amp;#123;  name: &amp;#x27;Lee&amp;#x27;,  sayHello: function () &amp;#123;    console.log(&#96;Hello! My name is $&amp;#123;this.name&amp;#125;.&#96;);  &amp;#125;&amp;#125;;console.log(typeof person); &#x2F;&#x2F; object">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dev_FE Softer">
+<meta property="og:url" content="https://mineclover.github.io/javascript/mjs-deep-dive/10.html">
+<meta property="og:site_name" content="Dev_FE Softer">
+<meta property="og:description" content="10-01123456789var person &#x3D; &amp;#123;  name: &amp;#x27;Lee&amp;#x27;,  sayHello: function () &amp;#123;    console.log(&#96;Hello! My name is $&amp;#123;this.name&amp;#125;.&#96;);  &amp;#125;&amp;#125;;console.log(typeof person); &#x2F;&#x2F; object">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2022-10-21T06:28:27.304Z">
+<meta property="article:modified_time" content="2022-10-11T00:06:07.000Z">
+<meta property="article:author" content="softer">
+<meta property="article:tag" content="develop">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://mineclover.github.io/javascript/mjs-deep-dive/10">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"ko","comments":true,"permalink":"https://mineclover.github.io/javascript/mjs-deep-dive/10.html","path":"javascript/mjs-deep-dive/10.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Dev_FE Softer
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Dev_FE Softer</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">일단 정리하는 블로그</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#10-01"><span class="nav-number">1.</span> <span class="nav-text">10-01</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-02"><span class="nav-number">2.</span> <span class="nav-text">10-02</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-03"><span class="nav-number">3.</span> <span class="nav-text">10-03</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-04"><span class="nav-number">4.</span> <span class="nav-text">10-04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-05"><span class="nav-number">5.</span> <span class="nav-text">10-05</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-06"><span class="nav-number">6.</span> <span class="nav-text">10-06</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-07"><span class="nav-number">7.</span> <span class="nav-text">10-07</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-08"><span class="nav-number">8.</span> <span class="nav-text">10-08</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-09"><span class="nav-number">9.</span> <span class="nav-text">10-09</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-10"><span class="nav-number">10.</span> <span class="nav-text">10-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-11"><span class="nav-number">11.</span> <span class="nav-text">10-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-12"><span class="nav-number">12.</span> <span class="nav-text">10-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-13"><span class="nav-number">13.</span> <span class="nav-text">10-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-14"><span class="nav-number">14.</span> <span class="nav-text">10-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-15"><span class="nav-number">15.</span> <span class="nav-text">10-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-16"><span class="nav-number">16.</span> <span class="nav-text">10-16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-17"><span class="nav-number">17.</span> <span class="nav-text">10-17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-18"><span class="nav-number">18.</span> <span class="nav-text">10-18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-19"><span class="nav-number">19.</span> <span class="nav-text">10-19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-20"><span class="nav-number">20.</span> <span class="nav-text">10-20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-21"><span class="nav-number">21.</span> <span class="nav-text">10-21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-22"><span class="nav-number">22.</span> <span class="nav-text">10-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-23"><span class="nav-number">23.</span> <span class="nav-text">10-23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-24"><span class="nav-number">24.</span> <span class="nav-text">10-24</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">softer</p>
+  <div class="site-description" itemprop="description">최대한 마크다운 문법으로, 일관적이게 나중에 활용하기 좋게 만들자</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="ko"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta-container">
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>10</li>
+  </ul>
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <h1 id="10-01"><a href="#10-01" class="headerlink" title="10-01"></a>10-01</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="attr">sayHello</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hello! My name is <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>.`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> person); <span class="comment">// object</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person); <span class="comment">// &#123;name: &quot;Lee&quot;, sayHello: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-02"><a href="#10-02" class="headerlink" title="10-02"></a>10-02</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> empty = &#123;&#125;; <span class="comment">// 빈 객체</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> empty); <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-03"><a href="#10-03" class="headerlink" title="10-03"></a>10-03</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="comment">// 프로퍼티 키는 name, 프로퍼티 값은 &#x27;Lee&#x27;</span></span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="comment">// 프로퍼티 키는 age, 프로퍼티 값은 20</span></span><br><span class="line">  <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="10-04"><a href="#10-04" class="headerlink" title="10-04"></a>10-04</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">firstName</span>: <span class="string">&#x27;Ung-mo&#x27;</span>, <span class="comment">// 식별자 네이밍 규칙을 준수하는 프로퍼티 키</span></span><br><span class="line">  <span class="string">&#x27;last-name&#x27;</span>: <span class="string">&#x27;Lee&#x27;</span>   <span class="comment">// 식별자 네이밍 규칙을 준수하지 않는 프로퍼티 키</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person); <span class="comment">// &#123;firstName: &quot;Ung-mo&quot;, last-name: &quot;Lee&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-05"><a href="#10-05" class="headerlink" title="10-05"></a>10-05</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">firstName</span>: <span class="string">&#x27;Ung-mo&#x27;</span>,</span><br><span class="line">  last-<span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span> <span class="comment">// SyntaxError: Unexpected token -</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="10-06"><a href="#10-06" class="headerlink" title="10-06"></a>10-06</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> key = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5: 프로퍼티 키 동적 생성</span></span><br><span class="line">obj[key] = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="comment">// ES6: 계산된 프로퍼티 이름</span></span><br><span class="line"><span class="comment">// var obj = &#123; [key]: &#x27;world&#x27; &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;hello: &quot;world&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-07"><a href="#10-07" class="headerlink" title="10-07"></a>10-07</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="string">&#x27;&#x27;</span>: <span class="string">&#x27;&#x27;</span>  <span class="comment">// 빈 문자열도 프로퍼티 키로 사용할 수 있다.</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// &#123;&quot;&quot;: &quot;&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-08"><a href="#10-08" class="headerlink" title="10-08"></a>10-08</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// &#123;0: 1, 1: 2, 2: 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-09"><a href="#10-09" class="headerlink" title="10-09"></a>10-09</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="attr">var</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">function</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// &#123;var: &quot;&quot;, function: &quot;&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-10"><a href="#10-10" class="headerlink" title="10-10"></a>10-10</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Kim&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo); <span class="comment">// &#123;name: &quot;Kim&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-11"><a href="#10-11" class="headerlink" title="10-11"></a>10-11</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = &#123;</span><br><span class="line">  <span class="attr">radius</span>: <span class="number">5</span>, <span class="comment">// ← 프로퍼티</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 원의 지름</span></span><br><span class="line">  <span class="attr">getDiameter</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123; <span class="comment">// ← 메서드</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * <span class="variable language_">this</span>.<span class="property">radius</span>; <span class="comment">// this는 circle을 가리킨다.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(circle.<span class="title function_">getDiameter</span>()); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-12"><a href="#10-12" class="headerlink" title="10-12"></a>10-12</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 마침표 표기법에 의한 프로퍼티 접근</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// Lee</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 대괄호 표기법에 의한 프로퍼티 접근</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person[<span class="string">&#x27;name&#x27;</span>]); <span class="comment">// Lee</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-13"><a href="#10-13" class="headerlink" title="10-13"></a>10-13</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person[name]); <span class="comment">// ReferenceError: name is not defined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-14"><a href="#10-14" class="headerlink" title="10-14"></a>10-14</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">age</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-15"><a href="#10-15" class="headerlink" title="10-15"></a>10-15</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="string">&#x27;last-name&#x27;</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">10</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">person.<span class="string">&#x27;last-name&#x27;</span>;  <span class="comment">// -&gt; SyntaxError: Unexpected string</span></span><br><span class="line">person.<span class="property">last</span>-name;    <span class="comment">// -&gt; 브라우저 환경: NaN</span></span><br><span class="line">                     <span class="comment">// -&gt; Node.js 환경: ReferenceError: name is not defined</span></span><br><span class="line">person[last-name];   <span class="comment">// -&gt; ReferenceError: last is not defined</span></span><br><span class="line">person[<span class="string">&#x27;last-name&#x27;</span>]; <span class="comment">// -&gt; Lee</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 키가 숫자로 이뤄진 문자열인 경우 따옴표를 생략할 수 있다.</span></span><br><span class="line">person<span class="number">.1</span>;     <span class="comment">// -&gt; SyntaxError: Unexpected number</span></span><br><span class="line">person.<span class="string">&#x27;1&#x27;</span>;   <span class="comment">// -&gt; SyntaxError: Unexpected string</span></span><br><span class="line">person[<span class="number">1</span>];    <span class="comment">// -&gt; 10 : person[1] -&gt; person[&#x27;1&#x27;]</span></span><br><span class="line">person[<span class="string">&#x27;1&#x27;</span>];  <span class="comment">// -&gt; 10</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-16"><a href="#10-16" class="headerlink" title="10-16"></a>10-16</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 name 프로퍼티가 존재하므로 name 프로퍼티의 값이 갱신된다.</span></span><br><span class="line">person.<span class="property">name</span> = <span class="string">&#x27;Kim&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person);  <span class="comment">// &#123;name: &quot;Kim&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-17"><a href="#10-17" class="headerlink" title="10-17"></a>10-17</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에는 age 프로퍼티가 존재하지 않는다.</span></span><br><span class="line"><span class="comment">// 따라서 person 객체에 age 프로퍼티가 동적으로 생성되고 값이 할당된다.</span></span><br><span class="line">person.<span class="property">age</span> = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person); <span class="comment">// &#123;name: &quot;Lee&quot;, age: 20&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-18"><a href="#10-18" class="headerlink" title="10-18"></a>10-18</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 동적 생성</span></span><br><span class="line">person.<span class="property">age</span> = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 age 프로퍼티가 존재한다.</span></span><br><span class="line"><span class="comment">// 따라서 delete 연산자로 age 프로퍼티를 삭제할 수 있다.</span></span><br><span class="line"><span class="keyword">delete</span> person.<span class="property">age</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// person 객체에 address 프로퍼티가 존재하지 않는다.</span></span><br><span class="line"><span class="comment">// 따라서 delete 연산자로 address 프로퍼티를 삭제할 수 없다. 이때 에러가 발생하지 않는다.</span></span><br><span class="line"><span class="keyword">delete</span> person.<span class="property">address</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person); <span class="comment">// &#123;name: &quot;Lee&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-19"><a href="#10-19" class="headerlink" title="10-19"></a>10-19</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">x</span>: x,</span><br><span class="line">  <span class="attr">y</span>: y</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;x: 1, y: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-20"><a href="#10-20" class="headerlink" title="10-20"></a>10-20</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 프로퍼티 축약 표현</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; x, y &#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;x: 1, y: 2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-21"><a href="#10-21" class="headerlink" title="10-21"></a>10-21</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> prefix = <span class="string">&#x27;prop&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 계산된 프로퍼티 이름으로 프로퍼티 키 동적 생성</span></span><br><span class="line">obj[prefix + <span class="string">&#x27;-&#x27;</span> + ++i] = i;</span><br><span class="line">obj[prefix + <span class="string">&#x27;-&#x27;</span> + ++i] = i;</span><br><span class="line">obj[prefix + <span class="string">&#x27;-&#x27;</span> + ++i] = i;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;prop-1: 1, prop-2: 2, prop-3: 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-22"><a href="#10-22" class="headerlink" title="10-22"></a>10-22</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> prefix = <span class="string">&#x27;prop&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 리터럴 내부에서 계산된 프로퍼티 이름으로 프로퍼티 키 동적 생성</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-<span class="subst">$&#123;++i&#125;</span>`</span>]: i,</span><br><span class="line">  [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-<span class="subst">$&#123;++i&#125;</span>`</span>]: i,</span><br><span class="line">  [<span class="string">`<span class="subst">$&#123;prefix&#125;</span>-<span class="subst">$&#123;++i&#125;</span>`</span>]: i</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;prop-1: 1, prop-2: 2, prop-3: 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-23"><a href="#10-23" class="headerlink" title="10-23"></a>10-23</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="attr">sayHi</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hi! &#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">sayHi</span>(); <span class="comment">// Hi! Lee</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="10-24"><a href="#10-24" class="headerlink" title="10-24"></a>10-24</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Lee&#x27;</span>,</span><br><span class="line">  <span class="comment">// 메서드 축약 표현</span></span><br><span class="line">  <span class="title function_">sayHi</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hi! &#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">sayHi</span>(); <span class="comment">// Hi! Lee</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+  <ul class="breadcrumb">
+            <li><a href="/javascript/">JAVASCRIPT</a></li>
+            <li><a href="/javascript/mjs-deep-dive/">MJS-DEEP-DIVE</a></li>
+            <li>10</li>
+  </ul>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">softer</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"mineclover/hexo-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
