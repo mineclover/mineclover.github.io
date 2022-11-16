@@ -28,10 +28,10 @@
 <meta property="og:description" content="일반 함수로 선언된 것은호출 위치에서 정의된다 !&#x3D; 선언된 자리에서는 값이 부여되지 않는다 용어 정리렉시컬 ( 함수 ) 범위 : 함수 범위템플릿 리터럴 : $&amp;#123;스크립트로 데이터 보간&amp;#125; 챕터 목적this의 동작 방식에 대해 이해해보자 this 12345678910111213141516171819function user() &amp;#12">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://mineclover.github.io/img/this-ex.png">
-<meta property="og:image" content="https://mineclover.github.io/javascript/function%20this/Pasted%20image%2020221017191629.png">
-<meta property="og:image" content="https://mineclover.github.io/javascript/function%20this/Pasted%20image%2020221017192650.png">
-<meta property="article:published_time" content="2022-10-21T06:28:28.642Z">
-<meta property="article:modified_time" content="2022-10-18T04:43:39.986Z">
+<meta property="og:image" content="https://mineclover.github.io/javascript/Object-this/Pasted%20image%2020221017191629.png">
+<meta property="og:image" content="https://mineclover.github.io/javascript/Object-this/Pasted%20image%2020221017192650.png">
+<meta property="article:published_time" content="2022-11-16T11:15:41.850Z">
+<meta property="article:modified_time" content="2022-10-22T14:08:25.000Z">
 <meta property="article:author" content="softer">
 <meta property="article:tag" content="develop">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">포스트</span>
         </a>
       </div>
@@ -199,9 +199,7 @@
 
 
 
-
-
-<p><img src="/javascript/function%20this/Pasted%20image%2020221017191629.png"></p>
+<p><img src="/javascript/Object-this/Pasted%20image%2020221017191629.png"></p>
 <h1 id="Call-메서드"><a href="#Call-메서드" class="headerlink" title="Call() 메서드"></a>Call() 메서드</h1><p><code>A.function.Call(B)</code><br>멤버로 선언된 일반 함수( or 객체 데이터) 를 B에게 빌려주는 역활을 하고<br>일반함수로 선언된 객체 데이터는 호출된 위치에서 정의되기 때문에<br>빌려졌을 때 B의 데이터를 사용하여 함수를 실행한다</p>
 <p><strong>B</strong> 에게 빌려준다<br>빌려줘서 function 을 호출한다</p>
 <p>이러한 Call() 메서드의 대표적인 예시는 <code>.forEach</code></p>
@@ -210,8 +208,7 @@
 
 
 
-<h2 id="만약-화살표-함수-안에-this-가-있는데-밖에-렉시컬이-없을-때"><a href="#만약-화살표-함수-안에-this-가-있는데-밖에-렉시컬이-없을-때" class="headerlink" title="만약 화살표 함수 안에 this 가 있는데 밖에 렉시컬이 없을 때"></a>만약 화살표 함수 안에 this 가 있는데 밖에 렉시컬이 없을 때</h2><p>this는 window를 가르킨다</p>
-<p><img src="/javascript/function%20this/Pasted%20image%2020221017192650.png"></p>
+<h2 id="만약-화살표-함수-안에-this-가-있는데-밖에-렉시컬이-없을-때"><a href="#만약-화살표-함수-안에-this-가-있는데-밖에-렉시컬이-없을-때" class="headerlink" title="만약 화살표 함수 안에 this 가 있는데 밖에 렉시컬이 없을 때"></a>만약 화살표 함수 안에 this 가 있는데 밖에 렉시컬이 없을 때</h2><p>this는 window를 가르킨다<br><img src="/javascript/Object-this/Pasted%20image%2020221017192650.png"></p>
 <h2 id="일반-함수-멤버와-화살표-함수-멤버-사용-방식"><a href="#일반-함수-멤버와-화살표-함수-멤버-사용-방식" class="headerlink" title="일반 함수 멤버와 화살표 함수 멤버 사용 방식"></a>일반 함수 멤버와 화살표 함수 멤버 사용 방식</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newC</span><br><span class="line"><span class="keyword">let</span> newD</span><br><span class="line"></span><br><span class="line"><span class="comment">// 객체 리터럴 선언!</span></span><br><span class="line"><span class="keyword">const</span> literal = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="comment">// 일반 함수는 호출 위치에서 따라 this 정의!</span></span><br><span class="line">  <span class="attr">c</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>) <span class="comment">// x 그저 함수가 선언됬을 뿐임</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 화살표 함수는 this가 자신이 선언된 렉시컬(함수) 범위에서 this 정의!</span></span><br><span class="line">  <span class="attr">d</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">a</span>) <span class="comment">// window.a &gt; 근데 window.a = undefind 여서 undefind</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">literal.<span class="title function_">c</span>() <span class="comment">// 1</span></span><br><span class="line">literal.<span class="title function_">d</span>() <span class="comment">// undefined</span></span><br><span class="line">newC = literal.<span class="property">c</span></span><br><span class="line">newD = literal.<span class="property">d</span> </span><br><span class="line"><span class="title function_">newC</span>() <span class="comment">// undefined &gt; window.newC()</span></span><br><span class="line"><span class="title function_">newD</span>() <span class="comment">// undefined</span></span><br><span class="line">newC.<span class="title function_">call</span>(literal) <span class="comment">// 1</span></span><br><span class="line">newD.<span class="title function_">call</span>(literal) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
       </div>
       
