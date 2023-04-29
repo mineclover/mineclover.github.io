@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[8604],{9469:e=>{e.exports=JSON.parse('{"title":"gist index","slug":"/category/gist","permalink":"/docs/category/gist","navigation":{"previous":{"title":"XML","permalink":"/docs/language/XML/"},"next":{"title":"isNumber","permalink":"/docs/language/javascript/gist/isNumber"}}}')}}]);
