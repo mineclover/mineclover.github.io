@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[750],{4045:e=>{e.exports=JSON.parse('{"title":"git index","slug":"/category/git","permalink":"/docs/category/git","navigation":{"previous":{"title":"figma-glass","permalink":"/docs/work/figma/figma-glass/"},"next":{"title":"git-commend","permalink":"/docs/work/git/git-commend"}}}')}}]);

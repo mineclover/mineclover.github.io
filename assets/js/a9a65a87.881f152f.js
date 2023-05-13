@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[3396],{43871:e=>{e.exports=JSON.parse('{"title":"border-line index","slug":"/category/border-line","permalink":"/docs/category/border-line","navigation":{"previous":{"title":"attr","permalink":"/docs/front/css/attr/"},"next":{"title":"border","permalink":"/docs/front/css/border-line/border"}}}')}}]);

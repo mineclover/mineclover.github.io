@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[8557],{89232:e=>{e.exports=JSON.parse('{"title":"auth-ui index","slug":"/category/auth-ui","permalink":"/docs/category/auth-ui","navigation":{"previous":{"title":"DB-insert","permalink":"/docs/back/supabase/DB-insert/"},"next":{"title":"auth-ui","permalink":"/docs/back/supabase/auth-ui/"}}}')}}]);

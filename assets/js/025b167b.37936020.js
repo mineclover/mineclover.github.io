@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[1744],{8989:e=>{e.exports=JSON.parse('{"title":"postgreSQL index","slug":"/category/postgresql","permalink":"/docs/category/postgresql","navigation":{"previous":{"title":"pdf-js","permalink":"/docs/back/node/pdf-js/"},"next":{"title":"postgreSQL","permalink":"/docs/back/postgreSQL/"}}}')}}]);

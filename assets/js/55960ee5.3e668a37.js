@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_blog=self.webpackChunkmy_blog||[]).push([[4121],{7245:e=>{e.exports=JSON.parse('[{"label":"\ub808\ud37c\ub7f0\uc2a4","permalink":"/docs/tags/\ub808\ud37c\ub7f0\uc2a4","count":1},{"label":"index-folder-note","permalink":"/docs/tags/index-folder-note","count":1},{"label":"vite","permalink":"/docs/tags/vite","count":1}]')}}]);
